@@ -1,0 +1,252 @@
+<! BBVA  ---------------------------------------------------------------------------->
+<! Operación:  PRESENTACION realizar_pre_inscritas_op  ---------------------------------->
+
+<! OPERACION ------------------------------------------------------------------------>
+<com.grupobbva.ce.op.tp.OPRealizarTras id=realizar_pre_inscritas_op operationContext=OperationContext>
+	<refFormat name=jspFormat refId=TraspasoPreRealizadaOPJspFmt>	
+	<refFormat name=jspFormat refId=TraspasoPreRealizadaTcnOPJspFmt>	
+	<refFormat name=jspFormat refId=TrasPorAutorizarOPJspFmt>	
+	<refFormat name=jspFormat refId=TrasPorAutorizarTcnOPJspFmt>	
+	<refFormat name=jspFormat refId=ErrorOPJspFmt>	
+	<refFormat name=jspFormat refId=ErrorOPTraspasos>	
+	<refFormat name=htmlRequestFormat refId=DatosTrasOPHTMLFmt>	
+
+	<refKColl refId=realizar_pre_inscritas_op-data>	
+	<!refOM refId=identificacion_operativa_om-->
+	<refOM refId=retorno_pre_pb_om>
+	<! refOM refId=retorno_pre_tcn_om -->
+	<!refOM refId=bloqueo_usuario_om-->
+	<refOM refId=validacion_token_pb_om>
+<! --------------------------------------------------------------------------------->
+
+<! ESTADOS --------------------------------------------------------------------------->
+	<navegacionOP>	
+		<estadoOP id=0 accion=continuar metodo=realizarPreInscritas requestFmt=DatosTrasOPHTMLFmt>				
+		<estadoOP id=1 accion=continuar metodo=realizarPreInscritas requestFmt=DatosTrasOPHTMLFmt>				
+		<estadoOP id=2 accion=continuar metodo=realizarPreInscritas requestFmt=DatosTrasOPHTMLFmt>				
+		<estadoOP id=3 accion=continuar metodo=realizarPreInscritas requestFmt=DatosTrasOPHTMLFmt>				
+		<estadoOP id=4 accion=continuar metodo=realizarPreInscritas requestFmt=DatosTrasOPHTMLFmt>				
+		<estadoOP id=MENSAJE accion=continuar metodo=realizarPreInscritas requestFmt=DatosTrasOPHTMLFmt>	
+		<estadoOP id=ERROR accion=continuar metodo=realizarPreInscritas requestFmt=DatosTrasOPHTMLFmt>			
+	</navegacionOP>		
+	
+<! SALIDAS --------------------------------------------------------------------------->
+	<resultadoOP>	
+		<salidaOP id=1 jspFmt=TraspasoPreRealizadaOPJspFmt>				
+		<salidaOP id=2 jspFmt=TrasPorAutorizarOPJspFmt>				
+		<salidaOP id=3 jspFmt=TrasPorAutorizarTcnOPJspFmt>				
+		<salidaOP id=4 jspFmt=TraspasoPreRealizadaTcnOPJspFmt>				
+		<salidaOP id=ERROR jspFmt=ErrorOPJspFmt>
+		<salidaOP id=MENSAJE jspFmt=ErrorOPTraspasos>				
+	</resultadoOP>	
+</com.grupobbva.ce.op.tp.OPRealizarTras>
+
+<! DATOS --------------------------------------------------------------------------->
+<kColl id=realizar_pre_inscritas_op-data>
+
+<field id=Resultado>
+	<field id=PDGroup>	
+	<field id=Mensaje>
+	<field id=PasswordOpe printValue="*****">
+	<field id=Country>
+	<field id=Bank>
+	<field id=MaxErrors>
+	<field id=ClaveAsunto printValue="*****">
+	<field id=NOper>
+	<field id=NOper2>
+	<field id=Fecha_vencimiento>
+	<field id=indOK>
+	<field id=Marca>
+	<field id=CodigoAutorizador>
+	<field id=ClaveOperacion >	
+   <field id=ClaveAutorizador printValue="*****">
+   <field id=IMPORTE2>
+   <field id=IMPORTE4>
+   <field id=DIVISA2>
+   
+  <field id=Error>
+  <field id=claveTokenOperaciones >	
+  
+  <field id=s_tipoAccion >
+</kColl>
+
+
+<! FORMATOS --------------------------------------------------------------------------->
+
+<fmtDef id=TraspasoPreRealizadaOPJspFmt>
+	<fJsp>
+		<fString dataName=s_terceros description=s_terceros><nullCheck>
+		<fString dataName=s_cod_nomemp description=empresa><nullCheck>
+		<fString dataName=s_cod_nomrep description=usuario><nullCheck>
+		<fString dataName=s_fecha_host description=fecha_host><nullCheck>
+		<fString dataName=s_hora_host description=hora_host><nullCheck>
+		<fString dataName=CtaOrd description=CtaOrd><nullCheck>
+		<fString dataName=MonedaCtaOrd description=monedactaord><nullCheck>
+		<fString dataName=TipoOrd description=TipoCtaOrd><nullCheck>
+		<fString dataName=NumeroCtaBenef description=NumeroCtaBenef><nullCheck>
+		<fString dataName=MonedaNumeroCtaBenef description=moendactabenef><nullCheck>			
+		<fString dataName=TipoBenef description=TipoBenef><nullCheck>
+		<fString dataName=MonedaTraspaso description=MonedaTraspaso><nullCheck>
+		<fString dataName=sNombreAbono description=NombreAbono><nullCheck>
+		<fString dataName=ObservTras description=ObservTras><nullCheck>
+		<fString dataName=Importe_temp description=importe_temp><nullCheck>
+		<fString dataName=Usuario_Autorizan description=usuario_autorizan><nullCheck>
+		
+		<!fNumString dataName=IMPORTE2 description=importe2 decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes --->
+		<!fNumString dataName=IMPORTE4 description=importe4 decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes --->
+		<!fString dataName=DIVISA2 description=divisa2 -->
+		
+		<fNumString dataName=ImporteTras description=ImporteTras decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>
+		<iCollVector dataName=retorno_pre_pb_om-data.Salida.ListaKNECBS13 description=ListaTraspaso>
+			<record dataName=KNECBS13 >	
+			<fNumString dataName=REFERENCIA1 description=refcargo><nullCheck>
+			<fNumString dataName=REFERENCIA2 description=refabono><nullCheck>
+			<fString dataName=FECHA1 description=fechoper><nullCheck>
+			<fString dataName=FECHA2 description=fechaval>	<nullCheck>	
+			<fNumString dataName=IMPORTE1 description=impcargo decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>
+			<fNumString dataName=TIPO_DE_CAMBIO_1 description=tipcambi decPlaces=4 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>
+<! ---------------------------------------------------------------------------------------------------------------------->
+			<fNumString dataName=IMPORTE3 description=importeRealCargado decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>
+<! ---------------------------------------------------------------------------------------------------------------------->
+			<fString dataName=DIVISA1 description=divcargo><nullCheck>
+			<fString dataName=AUXILIAR_1 description=hora><nullCheck>
+			<fNumString dataName=IMPORTE2 description=importe2 decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>
+			<fNumString dataName=IMPORTE4 description=importe4 decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>
+			<fString dataName=DIVISA2 description=divisa2 ><nullCheck>
+		</record>
+		</iCollVector>
+		<fNumString dataName=s_com_plaza description=com_plaza decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>		
+		<fString dataName=s_div_com description=div_com ><nullCheck>		
+		<fString dataName=sCodigo description=Codigo >	<nullCheck>	
+	</fJsp>
+</fmtDef>
+
+<fmtDef id=TraspasoPreRealizadaTcnOPJspFmt>
+	<fJsp>
+		<fString dataName=s_terceros description=s_terceros><nullCheck>
+		<fString dataName=s_cod_nomemp description=empresa><nullCheck>
+		<fString dataName=s_cod_nomrep description=usuario><nullCheck>
+		<fString dataName=s_fecha_host description=fecha_host><nullCheck>
+		<fString dataName=s_hora_host description=hora_host><nullCheck>
+		<fString dataName=CtaOrd description=CtaOrd><nullCheck>
+		<fString dataName=TipoOrd description=TipoCtaOrd><nullCheck>
+		<fString dataName=NumeroCtaBenef description=NumeroCtaBenef><nullCheck>
+		<fString dataName=TipoBenef description=TipoBenef><nullCheck>
+		<fString dataName=MonedaTraspaso description=MonedaTraspaso><nullCheck>
+		<fString dataName=sNombreAbono description=NombreAbono><nullCheck>
+		<fString dataName=ObservTras description=ObservTras><nullCheck>
+		<fString dataName=ImporteTras description=ImporteTras decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>
+		<iCollVector dataName=retorno_pre_pb_om-data.Salida.ListaKNECBS13 description=ListaTraspaso>
+			<record dataName=KNECBS13 >	
+			<fNumString dataName=REFERENCIA1 description=refcargo><nullCheck>
+			<fNumString dataName=REFERENCIA2 description=refabono><nullCheck>
+			<fDate dataName=FECHA1 description=fechoper><nullCheck>
+			<fDate dataName=FECHA2 description=fechaval>	<nullCheck>	
+			<fNumString dataName=IMPORTE1 description=impcargo decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>
+			<fNumString dataName=TIPO_DE_CAMBIO_1 description=tipcambi decPlaces=4 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>
+<! ---------------------------------------------------------------------------------------------------------------------->
+			<fNumString dataName=IMPORTE3 description=importeRealCargado decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>
+<! ---------------------------------------------------------------------------------------------------------------------->
+			<fString dataName=DIVISA1 description=divcargo><nullCheck>
+		</record>
+		</iCollVector>
+		<fNumString dataName=s_com_plaza description=com_plaza decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>		
+		<fString dataName=s_div_com description=div_com ><nullCheck>	
+		<fString dataName=sCodigo description=Codigo >	<nullCheck>	
+	</fJsp>
+</fmtDef>
+
+<fmtDef id=TrasPorAutorizarOPJspFmt>
+	<fJsp>
+		<fString dataName=s_terceros description=s_terceros><nullCheck>
+		<fString dataName=s_cod_nomemp description=empresa><nullCheck>
+		<fString dataName=s_cod_nomrep description=usuario><nullCheck>
+		<fString dataName=s_fecha_host description=fecha_host><nullCheck>
+		<fString dataName=s_hora_host description=hora_host><nullCheck>
+		<fString dataName=CtaOrd description=CtaOrd><nullCheck>
+		<fString dataName=MonedaCtaOrd description=monedactaord><nullCheck>
+		<fString dataName=NumeroCtaBenef description=NumeroCtaBenef><nullCheck>
+		<fString dataName=MonedaTraspaso description=MonedaTraspaso><nullCheck>
+		<fString dataName=MonedaNumeroCtaBenef description=moendactabenef><nullCheck>			
+		<fString dataName=sNombreAbono description=NombreAbono><nullCheck>
+		<fString dataName=Importe_temp description=importe_temp><nullCheck>
+		<fString dataName=Usuario_Autorizan description=usuario_autorizan><nullCheck>
+		<fNumString dataName=ImporteTras description=ImporteTras decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>
+		<iCollVector dataName=retorno_pre_pb_om-data.Salida.ListaKNECBS13 description=ListaTraspaso>
+			<record dataName=KNECBS13 >	
+			<fNumString dataName=NRO_AUTORIZACION description=nroautor><nullCheck>
+			<fString dataName=AUXILIAR_5 description=fechvalidez><nullCheck>
+<! ---------------------------------------------------------------------------------------------------------------------->
+			<fNumString dataName=IMPORTE3 description=importeRealCargado decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>
+<! ---------------------------------------------------------------------------------------------------------------------->
+		</record>
+		</iCollVector>
+		<fNumString dataName=s_com_plaza description=com_plaza decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>
+
+		<fString dataName=s_div_com description=div_com ><nullCheck>		
+		<fString dataName=sCodigo description=Codigo >	<nullCheck>	
+	</fJsp>
+</fmtDef>
+
+<fmtDef id=TrasPorAutorizarTcnOPJspFmt>
+	<fJsp>
+		<fString dataName=s_terceros description=s_terceros><nullCheck>
+		<fString dataName=s_cod_nomemp description=empresa><nullCheck>
+		<fString dataName=s_cod_nomrep description=usuario><nullCheck>
+		<fString dataName=s_fecha_host description=fecha_host><nullCheck>
+		<fString dataName=s_hora_host description=hora_host><nullCheck>
+		<fString dataName=CtaOrd description=CtaOrd><nullCheck>
+		<fString dataName=NumeroCtaBenef description=NumeroCtaBenef><nullCheck>
+		<fString dataName=MonedaTraspaso description=MonedaTraspaso><nullCheck>
+		<fString dataName=sNombreAbono description=NombreAbono><nullCheck>
+		<fString dataName=ImporteTras description=ImporteTras decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>
+		<iCollVector dataName=retorno_pre_pb_om-data.Salida.ListaKNECBS13 description=Traspaso>
+			<record dataName=KNECBS13 >
+			<fNumString dataName=NRO_AUTORIZACION description=nroautor><nullCheck>
+<! ---------------------------------------------------------------------------------------------------------------------->
+			<fNumString dataName=IMPORTE3 description=importeRealCargado decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>
+<! ---------------------------------------------------------------------------------------------------------------------->
+		</record>
+		</iCollVector>
+		<fNumString dataName=s_com_plaza description=com_plaza decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>
+
+		<fString dataName=s_div_com description=div_com ><nullCheck>	
+		<fString dataName=sCodigo description=Codigo >	<nullCheck>	
+	</fJsp>
+</fmtDef>
+
+<fmtDef id=ErrorOPJspFmt>
+	<fJsp>
+		<fString dataName=s_cod_nomemp description=empresa><nullCheck>
+		<fString dataName=s_cod_nomrep description=usuario><nullCheck>
+		<fString dataName=s_fecha_host description=fecha_host><nullCheck>
+		<fString dataName=s_hora_host description=hora_host><nullCheck>
+ 		<fString dataName=Error description=mensaje><nullCheck>
+	</fJsp>
+</fmtDef>
+
+<fmtDef id=ErrorOPTraspasos>
+	<fJsp>		
+		<fString dataName=s_cod_nomemp description=empresa><nullCheck>
+		<fString dataName=s_cod_nomrep description=usuario><nullCheck>
+		<fString dataName=s_fecha_host description=fecha_host><nullCheck>
+		<fString dataName=s_hora_host description=hora_host><nullCheck>
+		<fString dataName=Mensaje description=mensaje><nullCheck>
+	</fJsp>
+</fmtDef>
+
+<! FORMATOS  DE ENTRADA-------------------------------------------------------------->
+
+<fmtDef id=DatosTrasOPHTMLFmt>
+	<fHTMLReq>
+		<fString dataName=ClaveOperacion><nullCheck>
+		<!---fString dataName=ClaveAsunto--->
+		<!---fString dataName=Marca-->
+		<!---fString dataName=CodigoAutorizador-->
+		<!---fString dataName=ClaveAutorizador-->
+		<fString dataName=claveTokenOperaciones><nullCheck>
+		<fString dataName=s_tipoAccion><nullCheck>
+	</fHTMLReq>
+</fmtDef>	
+<! --------------------------------------------------------------------------------->
+

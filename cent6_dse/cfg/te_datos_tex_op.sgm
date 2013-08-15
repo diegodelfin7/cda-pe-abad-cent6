@@ -1,0 +1,72 @@
+<! BBVA  ---------------------------------------------------------------------------->
+<! Operación:  PRESENTACION te_datos_tex_op  -------------------------------------------->
+
+<! OPERACION ------------------------------------------------------------------------>
+<com.grupobbva.ce.op.te.OPDatosTex id=te_datos_tex_op operationContext=OperationContext>
+   <refFormat name=htmlRequestFormat refId=DatosTexOPHTMLFmt>
+   <refFormat name=jspFormat refId=DatosTexOPJspFmt>
+   <refFormat name=jspFormat refId=ErrorOPJspFmt>
+   <refKColl refId=te_datos_tex_op-data>
+   <refOM refId=lista_cuentas_pb_om>
+<! --------------------------------------------------------------------------------->
+
+<! ESTADOS ------------------------------------------------------------------------->
+	<navegacionOP>
+		<estadoOP id=0 accion=datosTex metodo=datosTex requestFmt=DatosTexOPHTMLFmt>
+		<estadoOP id=1 accion=datosTex metodo=datosTex requestFmt=DatosTexOPHTMLFmt>
+		<estadoOP id=ERROR accion=datosTex metodo=datosTex requestFmt=DatosTexOPHTMLFmt>
+	</navegacionOP>
+
+<! SALIDAS ------------------------------------------------------------------------->
+	<resultadoOP>
+		<salidaOP id=1 jspFmt=DatosTexOPJspFmt>
+		<salidaOP id=ERROR jspFmt=ErrorOPJspFmt >
+	</resultadoOP>
+</com.grupobbva.ce.op.te.OPDatosTex>
+
+<! DATOS --------------------------------------------------------------------------->
+<kColl id=te_datos_tex_op-data>
+	<field id=Error>
+	<field id=AsuntoPropio>
+</kColl>
+
+<! FORMATOS ------------------------------------------------------------------------>
+<fmtDef id=DatosTexOPJspFmt>
+   <fJsp>
+     <fString dataName=s_cod_nomemp description=empresa><nullCheck>
+     <fString dataName=s_cod_nomrep description=usuario><nullCheck>
+      <fString dataName=s_fecha_host description=fecha_host><nullCheck>
+      <fString dataName=s_hora_host description=hora_host><nullCheck>
+      
+		<iCollVector dataName=s_salida_posicion_global_cuentas.s_lista_posicion_global_cuentas description=ListaCuentas>
+			<record dataName=s_cuenta>	
+				<fString dataName=s_banco><nullCheck>
+				<fString dataName=s_oficina><nullCheck>
+				<fString dataName=s_dcontrol><nullCheck>
+				<fString dataName=s_num_cuenta><nullCheck>
+				<fString dataName=s_tipo><nullCheck>
+				<fString dataName=s_estado><nullCheck>
+				<fNumString dataName=s_saldo_disponible decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes ><nullCheck>	      
+	         <fString dataName=s_divisa><nullCheck>
+	         <fString dataName=s_clave_asunto><nullCheck>
+			</record>								
+		</iCollVector>      
+      
+   </fJsp>
+</fmtDef>
+
+<fmtDef id=ErrorOPJspFmt>
+   <fJsp>
+     <fString dataName=s_cod_nomemp description=empresa><nullCheck>
+     <fString dataName=s_cod_nomrep description=usuario><nullCheck>
+      <fString dataName=s_fecha_host description=fecha_host><nullCheck>
+      <fString dataName=s_hora_host description=hora_host><nullCheck>
+      <fString dataName=Error description=mensaje><nullCheck>
+   </fJsp>
+</fmtDef>
+
+<! FORMATOS  DE ENTRADA-------------------------------------------------------------->
+<fmtDef id=DatosTexOPHTMLFmt>
+   <fHTMLReq>
+   </fHTMLReq>
+</fmtDef>

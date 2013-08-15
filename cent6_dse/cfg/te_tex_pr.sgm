@@ -1,0 +1,82 @@
+<! BBVA  ---------------------------------------------------------------------------->
+<! Operación: te_tex_pr  ------------------------------------------>
+
+<! OPERACION ----------------------------------------------------------------------->
+
+<com.grupobbva.ce.op.te.PrTransferExt id=te_tex_pr operationContext=OperationContext>
+	<refKColl refId=te_tex_pr-data>
+
+<! ESTADOS --------------------------------------------------------------------------->
+	<navegacionPr>
+
+		<estadoPr id=0 operacion=te_datos_tex_op>
+		<estadoPr id=1 operacion=te_datos_tex_op>
+		
+		<estadoPr id=0 operacion=te_confirmar_tex_op>
+		<estadoPr id=1 operacion=te_confirmar_tex_op>
+		
+		<estadoPr id=0 operacion=te_realizar_tex_op>
+		<estadoPr id=1 operacion=te_realizar_tex_op>		
+
+	</navegacionPr>
+
+<! SALIDAS --------------------------------------------------------------------------->
+	<resultadoPr>
+
+		<salidaPr id=0 operacion=te_datos_tex_op estadoOP=ERROR jspFile=gn001_error>
+		<salidaPr id=1 operacion=te_datos_tex_op estadoOP=1 jspFile=te001_orden_tex >
+		<salidaPr id=1 operacion=te_datos_tex_op estadoOP=ERROR jspFile=gn001_error>
+		
+		<salidaPr id=0 operacion=te_confirmar_tex_op estadoOP=ERROR jspFile=gn001_error>	
+		<salidaPr id=1 operacion=te_confirmar_tex_op estadoOP=1 jspFile=te002_conf_tex>	
+		<salidaPr id=1 operacion=te_confirmar_tex_op estadoOP=ERROR jspFile=gn001_error>	
+		
+		<salidaPr id=0 operacion=te_realizar_tex_op estadoOP=ERROR jspFile=gn001_error>	
+		<salidaPr id=1 operacion=te_realizar_tex_op estadoOP=1 jspFile=te003_realizar_tex>	
+		<salidaPr id=1 operacion=te_realizar_tex_op estadoOP=ERROR jspFile=gn001_error>	
+
+	</resultadoPr>
+</com.grupobbva.ce.op.te.PrTransferExt>
+<! --------------------------------------------------------------------------------->
+
+<! DATOS --------------------------------------------------------------------------->
+<kColl id=te_tex_pr-data>
+   <field id=sNROCTA >
+	<field id=sIMPORTE>
+	<field id=sCtaAbono>
+	<field id=sNombre>
+	<field id=sMotivo1>
+	<field id=sINDGASTO>
+	<field id=sBanNombre>
+	<field id=sDirecBancoPaga>
+	<field id=sDireTeleMotivo2>
+	<field id=sutilizaBanco>
+	<field id=sconBanNombre>
+	<field id=sconDirecBancoPaga>
+	<field id=sBanDire1>
+	<field id=sBanDire2>
+   <field id=sconCodSwift>
+   <field id=sconCodSwift1>
+   <field id=sconBanDire1>
+   <field id=sconBanDire2>
+	<field id=sNumTarjeta>
+	<field id=sTipoCuenta>
+	<field id=sAsuntoTarjeta>
+	<field id=sTipoTarjeta>
+	<field id=sMONEDACTA>
+	<field id=sASUNTO>
+	<field id=sPRODUCTO>
+   <field id=sDIVISA>
+   <field id=smonedaCombo>
+	<field id=sBCODESTINO>
+	<field id=sLOCALIDAD1>
+	<field id=sLOCALIDAD2>
+   <field id=sCodSwift>
+   <field id=sAvance>		
+   <field id=sMotivo2>
+   <field id=sMotivo3>
+   <field id=sMotivo4>
+   <field id=sAvanceCadena>
+        
+</kColl>
+<! --------------------------------------------------------------------------------->
