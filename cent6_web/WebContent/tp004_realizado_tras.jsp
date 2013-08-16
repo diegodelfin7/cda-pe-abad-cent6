@@ -43,6 +43,13 @@ function enviar(valor)
 	document.cuerpo.submit();
 	document.cuerpo.b1.disabled = true;
 }
+
+function inscribir()
+{
+	document.cuerpo.action="OperacionCBTFServlet?proceso=pfPagoFrecuenteTP_pr&operacion=pfInscripcionTP_op&accion=continuar";
+	document.cuerpo.submit();
+	document.cuerpo.boton1.disabled = true;
+}
 </script>
 <script language=JavaScript>
 function click(e) {
@@ -243,10 +250,14 @@ if (document.layers) {
 	s&aacute;bados, domingos y feriados, se tomar&aacute; como fecha de abono el d&iacute;a
 	siguiente &uacute;til de realizada la operaci&oacute;n.
 	</td>
+	
 </tr>
 </table>
+<% if(!(.equals(""))) { %>
 
-<jsp:include page="cf001_ing_datos.jsp"  flush="true"/> 
+<jsp:include page="pfInclusionPagoFrecuenteTP.jsp"  flush="true"/>
+<%} %>
+<jsp:include page="cf001_ing_datos.jsp"  flush="true"/>  
 
 </div>  
 </center>	
