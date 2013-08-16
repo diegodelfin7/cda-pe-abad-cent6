@@ -1,0 +1,131 @@
+<! BBVA  ----------------------------------------------------------------------------->
+<! Operación:  PROCESO  traspasos_pr  CONTINET EMPRESAS------------------------------->
+
+<! OPERACION ------------------------------------------------------------------------->
+
+<com.grupobbva.ce.op.tp.PrTraspasos id=traspasos_pr operationContext=OperationContext>
+	<refKColl refId=traspasos_pr-data>
+
+<! ESTADOS --------------------------------------------------------------------------->
+	<navegacionPr>		
+		<estadoPr id=0 operacion=ctas_ord_op>
+		<estadoPr id=1 operacion=ctas_ord_op>
+		<estadoPr id=2 operacion=ctas_ord_op>
+		<estadoPr id=3 operacion=ctas_ord_op>
+		<estadoPr id=4 operacion=ctas_ord_op>
+
+		<estadoPr id=0 operacion=ctas_ter_op>
+		<estadoPr id=1 operacion=ctas_ter_op>
+		<estadoPr id=2 operacion=ctas_ter_op>
+		<estadoPr id=3 operacion=ctas_ter_op>
+		<estadoPr id=4 operacion=ctas_ter_op>
+				
+		<estadoPr id=0 operacion=ctas_pre_op>
+		<estadoPr id=1 operacion=ctas_pre_op>
+		<estadoPr id=2 operacion=ctas_pre_op>
+		<estadoPr id=3 operacion=ctas_pre_op>
+		<estadoPr id=4 operacion=ctas_pre_op>
+
+		<estadoPr id=1 operacion=ctas_beneficiarias_op>
+		<estadoPr id=1 operacion=ctas_pre_beneficiarias_op>
+
+		<estadoPr id=0 operacion=confirmar_tras_op>
+		<estadoPr id=2 operacion=confirmar_tras_op>
+		<estadoPr id=0 operacion=confirmar_ter_op>
+		<estadoPr id=1 operacion=confirmar_ter_op>
+		<estadoPr id=2 operacion=confirmar_pre_op>
+
+		<estadoPr id=0 operacion=realizar_tras_op>
+		<estadoPr id=3 operacion=realizar_tras_op>
+		<estadoPr id=0 operacion=realizar_terceros_op>
+		<estadoPr id=3 operacion=realizar_terceros_op>
+		<estadoPr id=3 operacion=realizar_pre_inscritas_op>
+		
+	</navegacionPr>		
+
+<! SALIDAS --------------------------------------------------------------------------->
+	<resultadoPr>	
+		<salidaPr id=1 operacion=ctas_ord_op estadoOP=ERROR jspFile=gn001_error>
+		<salidaPr id=1 operacion=ctas_ord_op estadoOP=1 jspFile=tp001_rel_ordenantes>
+
+		<salidaPr id=2 operacion=ctas_beneficiarias_op estadoOP=ERROR jspFile=gn001_error>
+		<salidaPr id=2 operacion=ctas_beneficiarias_op estadoOP=TRANSGRESION jspFile=gn004_mensaje_per>		
+		<salidaPr id=2 operacion=ctas_beneficiarias_op estadoOP=1 jspFile=tp002_rel_beneficiarias>
+
+		<salidaPr id=3 operacion=confirmar_tras_op estadoOP=ERROR jspFile=gn001_error>		
+		<salidaPr id=3 operacion=confirmar_tras_op estadoOP=TRANSGRESION jspFile=gn004_mensaje_per>		
+		<salidaPr id=3 operacion=confirmar_tras_op estadoOP=1 jspFile=tp003_conf_tras>		
+		<salidaPr id=0 operacion=confirmar_tras_op estadoOP=1 jspFile=tp003_conf_tras>		
+		
+		<salidaPr id=1 operacion=ctas_ter_op estadoOP=ERROR jspFile=gn001_error>
+		<salidaPr id=1 operacion=ctas_ter_op estadoOP=1 jspFile=tp001_rel_orden3>		
+
+		<salidaPr id=3 operacion=confirmar_ter_op estadoOP=0 jspFile=tp003_conf_tras_ter>
+		<salidaPr id=3 operacion=confirmar_ter_op estadoOP=ERROR jspFile=gn001_error>
+		<salidaPr id=3 operacion=confirmar_ter_op estadoOP=TRANSGRESION jspFile=gn004_mensaje_per>
+		<salidaPr id=3 operacion=confirmar_ter_op estadoOP=1 jspFile=tp003_conf_tras_ter>
+
+		<salidaPr id=1 operacion=ctas_pre_op estadoOP=ERROR jspFile=gn001_error>
+		<salidaPr id=1 operacion=ctas_pre_op estadoOP=1 jspFile=tp001_pre_ordenantes>
+
+		<salidaPr id=2 operacion=ctas_pre_beneficiarias_op estadoOP=ERROR jspFile=gn001_error>
+		<salidaPr id=2 operacion=ctas_pre_beneficiarias_op estadoOP=TRANSGRESION jspFile=gn004_mensaje_per>		
+		<salidaPr id=2 operacion=ctas_pre_beneficiarias_op estadoOP=1 jspFile=tp002_pre_beneficiarias>
+
+		<salidaPr id=3 operacion=confirmar_pre_op estadoOP=ERROR jspFile=gn001_error>		
+		<salidaPr id=3 operacion=confirmar_pre_op estadoOP=TRANSGRESION jspFile=gn004_mensaje_per>		
+		<salidaPr id=3 operacion=confirmar_pre_op estadoOP=1 jspFile=tp003_conf_pre>		
+
+		<salidaPr id=0 operacion=realizar_tras_op estadoOP=1 jspFile=tp004_realizado_tras>
+		<salidaPr id=4 operacion=realizar_tras_op estadoOP=ERROR jspFile=gn001_error>
+		<salidaPr id=4 operacion=realizar_tras_op estadoOP=MENSAJE jspFile=gn001_error>
+		<salidaPr id=4 operacion=realizar_tras_op estadoOP=1 jspFile=tp004_realizado_tras>
+		<salidaPr id=4 operacion=realizar_tras_op estadoOP=2 jspFile=tp004_trans_por_autorizar>
+		<salidaPr id=4 operacion=realizar_tras_op estadoOP=3 jspFile=tp004_trans_por_autorizar>
+		<salidaPr id=4 operacion=realizar_tras_op estadoOP=4 jspFile=tp004_realizado_tras>
+
+		<salidaPr id=0 operacion=realizar_terceros_op estadoOP=1 jspFile=tp004_realizado_tras>
+		<salidaPr id=4 operacion=realizar_terceros_op estadoOP=ERROR jspFile=gn001_error>
+		<salidaPr id=4 operacion=realizar_terceros_op estadoOP=MENSAJE jspFile=gn001_error>
+		<salidaPr id=4 operacion=realizar_terceros_op estadoOP=1 jspFile=tp004_realizado_tras>
+		<salidaPr id=4 operacion=realizar_terceros_op estadoOP=2 jspFile=tp004_trans_por_autorizar>
+		<salidaPr id=4 operacion=realizar_terceros_op estadoOP=3 jspFile=tp004_trans_por_autorizar>
+		<salidaPr id=4 operacion=realizar_terceros_op estadoOP=4 jspFile=tp004_realizado_tras>
+
+		<salidaPr id=4 operacion=realizar_pre_inscritas_op estadoOP=ERROR jspFile=gn001_error>
+		<salidaPr id=4 operacion=realizar_pre_inscritas_op estadoOP=MENSAJE jspFile=gn001_error>
+		<salidaPr id=4 operacion=realizar_pre_inscritas_op estadoOP=1 jspFile=tp004_realizado_tras>
+		<salidaPr id=4 operacion=realizar_pre_inscritas_op estadoOP=2 jspFile=tp004_trans_por_autorizar>
+		<salidaPr id=4 operacion=realizar_pre_inscritas_op estadoOP=3 jspFile=tp004_trans_por_autorizar>
+		<salidaPr id=4 operacion=realizar_pre_inscritas_op estadoOP=4 jspFile=tp004_realizado_tras>
+		
+	</resultadoPr>	
+</com.grupobbva.ce.op.tp.PrTraspasos>
+<! --------------------------------------------------------------------------------->
+
+<! DATOS --------------------------------------------------------------------------->
+<kColl id=traspasos_pr-data>
+	<field id=ClaveCtaOrd>
+	<field id=TipoOrd>
+	<field id=CtaOrd>
+	<field id=MonedaCtaOrd>
+	<field id=NumeroCtaBenef>	
+	<field id=ClaveCtaBenef>
+	<field id=TipoBenef>
+	<field id=Importe_temp>
+	<field id=MonedaNumeroCtaBenef>
+	<field id=FechaOpe>
+	<field id=Divisa>
+	<field id=firma>
+	<field id=sCodigo>
+	<field id=ImporteTras>
+	<field id=ObservTras>	
+	<field id=MonedaTraspaso>
+	<field id=TipoCtaCar>
+	<field id=sNombreAbono>
+	<field id=s_com_plaza>
+	<field id=s_div_com>
+	<field id=Usuario_Autorizan>
+</kColl>
+<! --------------------------------------------------------------------------------->
+

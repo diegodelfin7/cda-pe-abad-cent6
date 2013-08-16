@@ -1,0 +1,139 @@
+<! BBVA  ----------------------------------------------------------------------------->
+<! Operación:  PRESENTACION cci_realtrans_op  -------------------------------------->
+  
+<! OPERACION ------------------------------------------------------------------------->
+<com.grupobbva.ce.op.oi.OPRealTransCci id=cci_realtrans_op operationContext=OperationContext>
+	<refFormat name=jspFormat refId=RealTransCciJspFmt>	
+	<refFormat name=jspFormat refId=AutorizarTransCciJspFmt>	
+	<refFormat name=jspFormat refId=ErrorOPJspFmt>
+	<refFormat name=htmlRequestFormat refId=RealizaOPHTMLFmt>	
+	<refOM refId=identificacion_operativa_om>
+	<refOM refId=bloqueo_usuario_om>
+	<refOM refId=cci_realtrans_pb_om>
+	<refOM refId=validacion_token_om>
+	<refKColl refId=cci_realtrans_op-data>	
+<! ----------------------------------------------------------------------------------->
+
+<! ESTADOS --------------------------------------------------------------------------->
+	<navegacionOP>	
+		<estadoOP id=0 accion=aceptar metodo=realizar requestFmt=RealizaOPHTMLFmt>		
+		<estadoOP id=1 accion=aceptar metodo=realizar requestFmt=RealizaOPHTMLFmt>
+		<estadoOP id=2 accion=aceptar metodo=realizar requestFmt=RealizaOPHTMLFmt>
+		<estadoOP id=ERROR accion=aceptar metodo=realizar requestFmt=RealizaOPHTMLFmt>		
+	</navegacionOP>		
+	
+<! SALIDAS --------------------------------------------------------------------------->
+	<resultadoOP>
+		<salidaOP id=ERROR jspFmt=ErrorOPJspFmt>	
+		<salidaOP id=1 jspFmt=RealTransCciJspFmt>			
+		<salidaOP id=2 jspFmt=AutorizarTransCciJspFmt>			
+	</resultadoOP>	
+</com.grupobbva.ce.op.oi.OPRealTransCci>
+
+<! DATOS ----------------------------------------------------------------------------->
+<kColl id=cci_realtrans_op-data>>
+  <field id=Error>
+	<field id=Resultado>
+	<field id=PDGroup>	
+	<field id=Mensaje>
+	<field id=PasswordOpe printValue="*****">
+	<field id=Country>
+	<field id=Bank>
+	<field id=MaxErrors>
+	<field id=ClaveAsunto printValue="*****">
+	<field id=Marca>
+        <field id=CodigoAutorizador>
+        <field id=ClaveAutorizador printValue="*****">
+        <field id=ClaveOperacion >
+        <field id=claveTokenOperaciones >
+   	<field id=claveTokenOperacionesSegunda printValue="*****">
+   	<field id=s_tipoAccion >
+</kColl>
+
+<! FORMATOS -------------------------------------------------------------------------->
+<fmtDef id=RealTransCciJspFmt>
+	<fJsp>
+		<fString dataName=s_cod_nomemp description=empresa>
+		<fString dataName=s_cod_nomrep description=usuario>
+		<fString dataName=s_fecha_host description=fecha_host>
+		<fString dataName=s_hora_host description=hora_host>
+
+		<fString dataName=NumeroOperacion1 description=operacion1 ><nullCheck>
+		<fString dataName=NumeroOperacion2 description=operacion2 ><nullCheck>
+		<fString dataName=cuentabenefjsp description=cuentabeneficiaria>
+                <fString dataName=cuentaordjsp description=ctacargo><nullCheck>
+		<fString dataName=Beneficiario description=beneficiario><nullCheck>
+		<fNumString dataName=ImpTransferencia description=importe decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes><nullCheck>
+		<fNumString dataName=ImpTotaTrans description=transferido decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes><nullCheck>
+		<fNumString dataName=ImpTotaTransTc description=importecargado decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes><nullCheck>
+		<fString dataName=Moneda description=moneda><nullCheck>
+		<fString dataName=MonedaCargo description=monedacargo><nullCheck>
+		<fString dataName=nombrebanco description=bancodestino><nullCheck>
+		<fNumString dataName=TipoCambio description=tipocambio decPlaces=4 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes><nullCheck>
+		<fNumString dataName=ComisionRed description=c_red decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes><nullCheck>
+		<fNumString dataName=ComisionGral description=c_gral decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes><nullCheck>
+                <fString dataName=fechaSal description=fechaSal><nullCheck>
+		<fString dataName=horaSal description=horaSal><nullCheck>
+		<fString dataName=prITF description=itf><nullCheck>
+		<fString dataName=prFecha description=fecha><nullCheck>
+		
+		<fString dataName=DocumentoBenef description=DocumentoBenef>
+		<fString dataName=NumeroDocBenef description=NumeroDocBenef>	
+		<fString dataName=DocumentoDescBenef description=DocumentoDescBenef>	
+	</fJsp>
+</fmtDef>
+
+<fmtDef id=AutorizarTransCciJspFmt>
+	<fJsp>
+		<fString dataName=s_cod_nomemp description=empresa>
+		<fString dataName=s_cod_nomrep description=usuario>
+		<fString dataName=s_fecha_host description=fecha_host>
+		<fString dataName=s_hora_host description=hora_host>
+
+		<fString dataName=NumeroOperacion1 description=operacion1 ><nullCheck>
+		<fString dataName=cuentabenefjsp description=cuentabeneficiaria><nullCheck>
+                <fString dataName=cuentaordjsp description=ctacargo><nullCheck>
+		<fString dataName=Beneficiario description=beneficiario><nullCheck>
+ 		<fNumString dataName=ImpTransferencia description=importe decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes><nullCheck>
+		<fNumString dataName=ImpTotaTrans description=transferido decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes><nullCheck>
+		<fNumString dataName=ImpTotaTransTc description=importecargado decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes><nullCheck>
+		<fString dataName=Moneda description=moneda><nullCheck>
+		<fString dataName=MonedaCargo description=monedacargo><nullCheck>
+		<fString dataName=nombrebanco description=bancodestino><nullCheck>
+		<fNumString dataName=TipoCambio description=tipocambio decPlaces=4 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes><nullCheck>
+		<fNumString dataName=ComisionRed description=c_red decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes><nullCheck>
+		<fNumString dataName=ComisionGral description=c_gral decPlaces=2 decimalsSepChar=. thousandsSepChar=, showDecimalsSep=yes showThousandsSep=yes><nullCheck>
+		<fString dataName=prITF description=itf><nullCheck>
+		<fString dataName=prFecha description=fecha><nullCheck>
+		
+		<fString dataName=DocumentoBenef description=DocumentoBenef>
+		<fString dataName=NumeroDocBenef description=NumeroDocBenef>	
+		<fString dataName=DocumentoDescBenef description=DocumentoDescBenef>	
+	</fJsp>
+</fmtDef>
+
+<fmtDef id=ErrorOPJspFmt>
+	<fJsp>
+		<fString dataName=s_cod_nomemp description=empresa>
+		<fString dataName=s_cod_nomrep description=usuario>
+		<fString dataName=s_fecha_host description=fecha_host>
+		<fString dataName=s_hora_host description=hora_host>
+		<fString dataName=Error description=mensaje>
+	</fJsp>
+</fmtDef>
+<! ----------------------------------------------------------------------------------->
+
+<! FORMATOS  DE ENTRADA-------------------------------------------------------------->
+<fmtDef id=RealizaOPHTMLFmt>
+	<fHTMLReq>
+		<fString dataName=ClaveAsunto>
+		<fString dataName=Marca>
+		<fString dataName=CodigoAutorizador>
+		<fString dataName=ClaveAutorizador>
+		<fString dataName=ClaveOperacion>
+		<fString dataName=claveTokenOperaciones>
+		<fString dataName=claveTokenOperacionesSegunda>
+		<fString dataName=s_tipoAccion>
+	</fHTMLReq>
+</fmtDef>	
+<! --------------------------------------------------------------------------------->
