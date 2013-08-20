@@ -26,6 +26,12 @@ function enviar(valor)
 	document.cuerpo.submit();
 	document.cuerpo.b1.disabled = true;
 }
+
+function inscribir() {
+	document.cuerpo.action= "OperacionCBTFServlet?proceso=pfPagoFrecuenteRC_pr&operacion=pfInscripcionRC_op&accion=continuar";
+	document.cuerpo.submit();
+	document.cuerpo.boton1.disabled = true;
+}
 </script>
 </head> 
    
@@ -500,8 +506,18 @@ function enviar(valor)
  <tr>
 	<td colspan='2'>Estimado Cliente, su operación ha sido efectuda. Por favor, tome nota del Número de Operación.</td>
  </tr>
+ 
+ <% if(!(.equals(""))) { %>
+ <table cellpadding="3" cellspacing="1" border="0" style="width=550px">
+ <tr>
+	<td colspan='2'><jsp:include page="pfInclusionPagoFrecuenteRC.jsp"  flush="true"/></td>
+ </tr>
+</table>
+<%} %>
+ 
  <jsp:include page="cf001_ing_datos.jsp"  flush="true"/> 
 </table>
+
 </div>
 </div>
 </div>
@@ -509,6 +525,8 @@ function enviar(valor)
 <%      } %>
 
 <% } %>
+
+
 
    </body>
 </html>

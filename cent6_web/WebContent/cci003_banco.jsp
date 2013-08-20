@@ -26,7 +26,11 @@ function enviar(valor)
 	document.cuerpo.submit();
 	  
 }
-
+function inscribir() {
+	document.cuerpo.action= "OperacionCBTFServlet?proceso=pfPagoFrecuenteCCI_pr&operacion=pfInscripcionCCI_op&accion=continuar";
+	document.cuerpo.submit();
+	document.cuerpo.boton1.disabled = true;
+}
 </script>
 <style type="text/css">
 	.negra {
@@ -467,7 +471,13 @@ destino, sin responsabilidad para el BBVA Banco Continental.</td>
 
 
 
-
+<% if(!(.equals(""))) { %>
+ <table cellpadding="3" cellspacing="1" border="0" style="width=550px">
+ <tr>
+	<td colspan='2'><jsp:include page="pfInclusionPagoFrecuenteCCI.jsp"  flush="true"/></td>
+ </tr>
+</table>
+<%} %>
 </div>
 </center>
 </div>

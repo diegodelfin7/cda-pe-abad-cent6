@@ -69,6 +69,13 @@ function enviar(valor)
 		document.captureEvents(Event.MOUSEDOWN);
 	}	
 	document.onmousedown=click;
+	
+	function inscribir() {
+		document.cuerpo.action= "OperacionCBTFServlet?proceso=pfPagoFrecuenteTEX_pr&operacion=pfInscripcionTEX_op&accion=continuar";
+		document.cuerpo.submit();
+		document.cuerpo.boton1.disabled = true;
+	}
+	
 // --> 
 </script>
 <BODY onLoad="startBanner()" class="pag-contenido" link="#660099">
@@ -207,10 +214,16 @@ if(!(codSwift.equals(""))){  %>
         Esta solicitud tiene validez solo el día de hoy, despues será anulada automáticamente.
         </td></tr></table>
 <%}%>
+
+ <% if(!(.equals(""))) { %>
+<jsp:include page="pfInclusionPagoFrecuenteTEX.jsp"  flush="true"/>
+<%} %>
 </center>
  </div>
  </center>
  </div>
+ 
+
  </div>
  </BODY>
 </html>
