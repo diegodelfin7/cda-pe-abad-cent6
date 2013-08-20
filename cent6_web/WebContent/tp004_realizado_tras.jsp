@@ -44,9 +44,28 @@ function enviar(valor)
 	document.cuerpo.b1.disabled = true;
 }
 
-function inscribir()
+function inscribir(opcion)
 {
-	document.cuerpo.action="OperacionCBTFServlet?proceso=pfPagoFrecuenteTP_pr&operacion=pfInscripcionTP_op&accion=continuar";
+	var urlProcesoOperacion = "";
+	
+	if(opcion="CCI"){
+		urlProcesoOperacion = "OperacionCBTFServlet?proceso=pfPagoFrecuenteCCI_pr&operacion=pfInscripcionCCI_op&accion=continuar";
+	}
+	if(opcion="PI"){
+		urlProcesoOperacion = "OperacionCBTFServlet?proceso=pfPagoFrecuentePI_pr&operacion=pfInscripcionPI_op&accion=continuar";
+	}
+	if(opcion="RC"){
+		urlProcesoOperacion = "OperacionCBTFServlet?proceso=pfPagoFrecuenteRC_pr&operacion=pfInscripcionRC_op&accion=continuar";
+	}
+	if(opcion="TEX"){
+		urlProcesoOperacion = "OperacionCBTFServlet?proceso=pfPagoFrecuenteTEX_pr&operacion=pfInscripcionTEX_op&accion=continuar";
+	}
+	if(opcion="TP"){
+		urlProcesoOperacion = "OperacionCBTFServlet?proceso=pfPagoFrecuenteTP_pr&operacion=pfInscripcionTP_op&accion=continuar";
+	}
+	
+	
+	document.cuerpo.action= urlProcesoOperacion;
 	document.cuerpo.submit();
 	document.cuerpo.boton1.disabled = true;
 }
@@ -254,9 +273,18 @@ if (document.layers) {
 </tr>
 </table>
 <% if(!(.equals(""))) { %>
-
+<jsp:include page="pfInclusionPagoFrecuenteCCI.jsp"  flush="true"/>
+<%} %>
+<% if(!(.equals(""))) { %>
+<jsp:include page="pfInclusionPagoFrecuenteRC.jsp"  flush="true"/>
+<%} %>
+<% if(!(.equals(""))) { %>
+<jsp:include page="pfInclusionPagoFrecuenteTEX.jsp"  flush="true"/>
+<%} %>
+<% if(!(.equals(""))) { %>
 <jsp:include page="pfInclusionPagoFrecuenteTP.jsp"  flush="true"/>
 <%} %>
+
 <jsp:include page="cf001_ing_datos.jsp"  flush="true"/>  
 
 </div>  
