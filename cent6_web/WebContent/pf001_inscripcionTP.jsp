@@ -100,10 +100,12 @@ if(hora.length()==4)
 							<td class="td_izq_color">Operación</td>
 							<td class="td_der_blan">NOMBRE OPERACION</td>
 						</tr>
-
-
-						<!--Número de Cuenta de Cargo-->
 						<tr class="tr_gris">
+							<td class="td_izq_color">Usuario que autoriza-1ra Firma</td>
+							<td class="td_der_blan">USUARIO</td>
+						</tr>
+						<!--Número de Cuenta de Cargo-->
+						<tr class="tr_blanco">
 							<td class="td_izq_color">Número de Cuenta de Cargo</td>
 							<td class="td_der_blan">&nbsp;<%= datos.get("CtaOrd")%>&nbsp;&nbsp;&nbsp;<%= datos.get("monedactaord")%></td>
 						</tr>
