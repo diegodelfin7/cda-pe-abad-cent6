@@ -204,7 +204,7 @@ if(hora.length()==4)
 										<tr class="tr_blanco">
 											<td class="td_izq_color" colspan="2"><input
 												type="checkbox" />Mensaje de Texto [SMS] a Teléfono Móvil<br>
-												<select><option>CLAIRO</option></select> <SELECT
+												<select><option>CLAIRO</option></select><SELECT
 												name="Localidad1" size="1">
 
 													<OPTION value="1">Lima-Callao</OPTION>
