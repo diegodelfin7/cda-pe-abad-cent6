@@ -45,6 +45,7 @@ function enviar(valor)
 }
 
 function inscribir() {
+	
 	document.cuerpo.action= "OperacionCBTFServlet?proceso=pfPagoFrecuenteTP_pr&operacion=pfInscripcionTP_op&accion=continuar";
 	document.cuerpo.submit();
 	document.cuerpo.boton1.disabled = true;
@@ -252,7 +253,8 @@ if (document.layers) {
 	
 </tr>
 </table>
-<% if(!(.equals(""))) { %>
+<!--el "ins" del if vendra del url final de la inscripcion -->
+<% if(request.getParameter(ins)==null) { %>
 <jsp:include page="pfInclusionPagoFrecuenteTP.jsp"  flush="true"/>
 <%} %>
 
