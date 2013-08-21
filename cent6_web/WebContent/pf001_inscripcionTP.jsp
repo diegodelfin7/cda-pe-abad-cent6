@@ -33,12 +33,41 @@ if(hora.length()==4)
 
 	var conteoTelefonos = 0;
 	function duplicarTelefono() {
+	
+	var comboLocalidades = 	'<SELECT name="Localidad1" size="1">'+
+							'<OPTION value="1">Lima-Callao</OPTION>'+
+							'<OPTION value="41">Amazonas</OPTION>'+
+							'<OPTION value="43">Ancash</OPTION>'+
+							'<OPTION value="83">Apurimac</OPTION>'+
+							'<OPTION value="54">Arequipa</OPTION>'+
+							'<OPTION value="66">Ayacucho</OPTION>'+
+							'<OPTION value="76">Cajamarca</OPTION>'+
+							'<OPTION value="63">Cerro de Pasco</OPTION>'+
+							'<OPTION value="84">Cusco</OPTION>'+
+							'<OPTION value="67">Huancavelica</OPTION>'+
+							'<OPTION value="62">Huanuco</OPTION>'+
+							'<OPTION value="56">Ica</OPTION>'+
+							'<OPTION value="64">Junin</OPTION>'+
+							'<OPTION value="44">La Libertad</OPTION>'+
+							'<OPTION value="74">Lambayeque</OPTION>'+
+							'<OPTION value="65">Loreto</OPTION>'+
+							'<OPTION value="82">Madre de Dios</OPTION>'+
+							'<OPTION value="53">Moquegua</OPTION>'+
+							'<OPTION value="73">Piura</OPTION>'+
+							'<OPTION value="51">Puno</OPTION>'+
+							'<OPTION value="42">San Martin</OPTION>'+
+							'<OPTION value="52">Tacna</OPTION>'+
+							'<OPTION value="72">Tumbes</OPTION>'+
+							'<OPTION value="61">Ucayali</OPTION>'+
+					'</SELECT>';
+	
 		conteoTelefonos++;
 		var contenidoDivTelefono = '<table style="width: 520px;" border="0">'
 				+ '<tr class="tr_blanco">'
 				+ '<td class="td_izq_color" colspan="2" >'
 				+ '<input type="checkbox"/>Mensaje de Texto [SMS] a Teléfono Móvil<br>'
-				+ '<select><option>CLAIRO</option></select> <select><option>CLAIRO</option></select>'
+				+ '<select><option>CLAIRO</option></select>'
+				+ comboLocalidades
 				+ '<select><option>1234567890</option></select>'
 				+ '<button name="btnEnviar" onclick="duplicarTelefono()">+</button>'
 				+ '</td>' + '</tr>' + '</table>';
@@ -164,19 +193,69 @@ if(hora.length()==4)
 						</tr>
 					</table>
 
-					<table style="width: 520px;" >
+					<table style="width: 520px;">
 						<tr>
 							<th colspan="2" id="nue">Tipo de Aviso</th>
 						</tr>
 						<tr>
 							<td>
 								<div id="contenedorTelefonos">
-									<table style="width: 520px;" >
+									<table style="width: 520px;">
 										<tr class="tr_blanco">
 											<td class="td_izq_color" colspan="2"><input
 												type="checkbox" />Mensaje de Texto [SMS] a Teléfono Móvil<br>
-												<select><option>CLAIRO</option></select> <select><option>CLAIRO</option></select>
-												<select><option>1234567890</option></select>
+												<select><option>CLAIRO</option></select> <SELECT
+												name="Localidad1" size="1">
+
+													<OPTION value="1">Lima-Callao</OPTION>
+
+													<OPTION value="41">Amazonas</OPTION>
+
+													<OPTION value="43">Ancash</OPTION>
+
+													<OPTION value="83">Apurimac</OPTION>
+
+													<OPTION value="54">Arequipa</OPTION>
+
+													<OPTION value="66">Ayacucho</OPTION>
+
+													<OPTION value="76">Cajamarca</OPTION>
+
+													<OPTION value="63">Cerro de Pasco</OPTION>
+
+													<OPTION value="84">Cusco</OPTION>
+
+													<OPTION value="67">Huancavelica</OPTION>
+
+													<OPTION value="62">Huanuco</OPTION>
+
+													<OPTION value="56">Ica</OPTION>
+
+													<OPTION value="64">Junin</OPTION>
+
+													<OPTION value="44">La Libertad</OPTION>
+
+													<OPTION value="74">Lambayeque</OPTION>
+
+													<OPTION value="65">Loreto</OPTION>
+
+													<OPTION value="82">Madre de Dios</OPTION>
+
+													<OPTION value="53">Moquegua</OPTION>
+
+													<OPTION value="73">Piura</OPTION>
+
+													<OPTION value="51">Puno</OPTION>
+
+													<OPTION value="42">San Martin</OPTION>
+
+													<OPTION value="52">Tacna</OPTION>
+
+													<OPTION value="72">Tumbes</OPTION>
+
+													<OPTION value="61">Ucayali</OPTION>
+
+											</SELECT> <select><option>1234567890</option></select>
 												<button name="btnEnviar" onclick='duplicarTelefono();'>+</button>
 											</td>
 										</tr>
@@ -187,7 +266,7 @@ if(hora.length()==4)
 						<tr>
 							<td>
 								<div id="contenedorEmail">
-									<table style="width: 520px;" >
+									<table style="width: 520px;">
 										<tr class="tr_blanco">
 											<td class="td_izq_color" colspan="2"><input
 												type="checkbox" />Mensaje de correo a la dirección
