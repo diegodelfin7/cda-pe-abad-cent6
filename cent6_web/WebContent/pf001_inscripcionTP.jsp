@@ -68,7 +68,7 @@ if(hora.length()==4)
 				+ '<input type="checkbox"/>Mensaje de Texto [SMS] a Teléfono Móvil<br>'
 				+ '<select><option>CLAIRO</option></select>'
 				+ comboLocalidades
-				+ '<select><option>1234567890</option></select>'
+				+ '<input type="text" id="txtTelefono" />'
 				+ '<button name="btnEnviar" onclick="duplicarTelefono()">+</button>'
 				+ '</td>' + '</tr>' + '</table>';
 
@@ -255,7 +255,8 @@ if(hora.length()==4)
 
 													<OPTION value="61">Ucayali</OPTION>
 
-											</SELECT> <select><option>1234567890</option></select>
+													<input type="text" id="txtTelefono" />
+													
 												<button name="btnEnviar" onclick='duplicarTelefono();'>+</button>
 											</td>
 										</tr>
