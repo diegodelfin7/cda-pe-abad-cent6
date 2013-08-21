@@ -25,7 +25,7 @@ if(hora.length()==4)
 	var conteoEmails = 0;
 	function duplicarEmail() {
 		conteoEmails++;
-		var duplicado = "<table style='width: 520px;' border='1'><tr class='tr_blanco'><td class='td_izq_color' colspan='2' ><input type='checkbox'/>Mensaje de correo a la dirección electrónica<br> <input type='text' value='DESCRIPCION' /> <button name='btnEnviar' onclick='duplicarEmail();'>+</button></table>";
+		var duplicado = '<table style="width: 520px;" border="0"><tr class="tr_blanco"><td class="td_izq_color" colspan="2" ><input type="checkbox"/>Mensaje de correo a la dirección electrónica<br> <input type="text" value="DESCRIPCION" /> <button name="btnEnviar" onclick="duplicarEmail();">+</button></table>';
 		document.getElementById("contenedorEmail").innerHTML = document
 				.getElementById("contenedorEmail").innerHTML
 				+ duplicado;
@@ -34,14 +34,14 @@ if(hora.length()==4)
 	var conteoTelefonos = 0;
 	function duplicarTelefono() {
 		conteoTelefonos++;
-		var contenidoDivTelefono = "<table style='width: 520px;' border='1'>"
-				+ "<tr class='tr_blanco'>"
-				+ "<td class='td_izq_color' colspan='2' >"
-				+ "<input type='checkbox'/>Mensaje de Texto [SMS] a Teléfono Móvil<br>"
-				+ "<select><option>CLAIRO</option></select> <select><option>CLAIRO</option></select>"
-				+ "<select><option>1234567890</option></select>"
-				+ "<button name='btnEnviar' onclick='duplicarTelefono()'>+</button>"
-				+ "</td>" + "</tr>" + "</table>";
+		var contenidoDivTelefono = '<table style="width: 520px;" border="0">'
+				+ '<tr class="tr_blanco">'
+				+ '<td class="td_izq_color" colspan="2" >'
+				+ '<input type="checkbox"/>Mensaje de Texto [SMS] a Teléfono Móvil<br>'
+				+ '<select><option>CLAIRO</option></select> <select><option>CLAIRO</option></select>'
+				+ '<select><option>1234567890</option></select>'
+				+ '<button name="btnEnviar" onclick="duplicarTelefono()">+</button>'
+				+ '</td>' + '</tr>' + '</table>';
 
 		document.getElementById("contenedorTelefonos").innerHTML = document
 				.getElementById("contenedorTelefonos").innerHTML
