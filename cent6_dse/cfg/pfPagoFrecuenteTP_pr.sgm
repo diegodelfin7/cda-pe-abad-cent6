@@ -23,7 +23,7 @@
 		<salidaPr id=1 operacion=pfInscripcionTP_op estadoOP=ERROR jspFile=gn001_error>			
 				
 		<salidaPr id=0 operacion=pfRealizarTP_op estadoOP=ERROR jspFile=gn001_error>		
-		<salidaPr id=1 operacion=pfRealizarTP_op estadoOP=1 jspFile=ps_agua003_datos_deuda>
+		<salidaPr id=1 operacion=pfRealizarTP_op estadoOP=1 jspFile=pf002_realizaTP>
 		<salidaPr id=1 operacion=pfRealizarTP_op estadoOP=ERROR jspFile=gn001_error>		
 		
 		

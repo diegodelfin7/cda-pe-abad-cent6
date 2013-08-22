@@ -2,7 +2,7 @@
 <! Operaciónn:  PROCESO  pfPagoFrecuenteRC_pr  ------------------------------------------>
 
 <! OPERACION ----------------------------------------------------------------------->
-<com.grupobbva.ce.op.pf.PrOperFrecRC id=pfPagoFrecuenteRC_pr operationConRCt=OperationConRCt>
+<com.grupobbva.ce.op.pf.PrOperFrecRC id=pfPagoFrecuenteRC_pr operationContext=OperationContext>
 	<refKColl refId=pfPagoFrecuenteRC_pr-data>
 
 <! ESTADOS --------------------------------------------------------------------------->
@@ -23,13 +23,13 @@
 		<salidaPr id=1 operacion=pfInscripcionRC_op estadoOP=ERROR jspFile=gn001_error>			
 				
 		<salidaPr id=0 operacion=pfRealizarRC_op estadoOP=ERROR jspFile=gn001_error>		
-		<salidaPr id=1 operacion=pfRealizarRC_op estadoOP=1 jspFile=ps_agua003_datos_deuda>
+		<salidaPr id=1 operacion=pfRealizarRC_op estadoOP=1 jspFile=pf002_realizaRC>
 		<salidaPr id=1 operacion=pfRealizarRC_op estadoOP=ERROR jspFile=gn001_error>		
 		
 		
 	</resultadoPr>	
 
-</com.grupobbva.ce.op.pf.PrOperFrecTerceros>
+</com.grupobbva.ce.op.pf.PrOperFrecRC>
 <! --------------------------------------------------------------------------------->
 
 <! DATOS --------------------------------------------------------------------------->
