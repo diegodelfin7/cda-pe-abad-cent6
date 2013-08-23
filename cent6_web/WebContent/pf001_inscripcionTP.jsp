@@ -204,8 +204,12 @@ if(hora.length()==4)
 										<tr class="tr_blanco">
 											<td class="td_izq_color" colspan="2"><input
 												type="checkbox" />Mensaje de Texto [SMS] a Teléfono Móvil<br>
-												<select><option>CLARO</option><option>MOVISTAR</option></select><SELECT
-												name="Localidad1" size="1">
+												<select name="compania" size="1">
+															<OPTION value="TELE">Movistar</OPTION>
+															<OPTION value="CLAR">Claro</OPTION>
+
+												</select>
+												<SELECT	name="Localidad1" size="1">
 
 													<OPTION value="1">Lima-Callao</OPTION>
 
@@ -254,6 +258,8 @@ if(hora.length()==4)
 													<OPTION value="72">Tumbes</OPTION>
 
 													<OPTION value="61">Ucayali</OPTION>
+												
+												</SELECT>
 
 													<input type="text" id="txtTelefono" />
 													
