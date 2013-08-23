@@ -45,12 +45,12 @@
 		<fString dataName=s_fecha_host description=fecha_host>
 		<fString dataName=s_hora_host description=hora_host>
 
-		<fString dataName=prUsuAutoriza description=UsuAutoriza>
-		<fString dataName=prCuentaCargo description=CuentaCargo>
-		<fString dataName=prMonedaCuentaCar description=MonedaCuentaCar>
-		<fString dataName=prCuentaAbono description=CuentaAbono>
-		<fString dataName=prMonedaCuentaAbo description=MonedaCuentaAbono>
-		<fString dataName=prTitCuentaAbono description=TitCuentaAbono>
+		<fString dataName=prUsuAutoriza description=usuAutoriza>
+		<fString dataName=prCuentaCargo description=cuentaCargo>
+		<fString dataName=prMonedaCuentaCar description=monedaCuentaCar>
+		<fString dataName=prCuentaAbono description=cuentaAbono>
+		<fString dataName=prMonedaCuentaAbo description=monedaCuentaAbono>
+		<fString dataName=prTitCuentaAbono description=titCuentaAbono>
 							               
 	</fJsp>	
 </fmtDef>
