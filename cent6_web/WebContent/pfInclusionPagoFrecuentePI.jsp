@@ -17,14 +17,12 @@
 </tr>
 </table>
 <!-- datos enviados para el formulario -->
-<input type="hidden" name="operacion" value="Transferencias Interbancarias">
-<input type="hidden" name="usuarioAutoriza" value="<%= datos.get("usuarioAutoriza")%>">
+<input type="hidden" name="operacion" value="A CUENTAS PREINSCRITAS">
+<input type="hidden" name="usuariosAutorizan" value="<%= datos.get("usuariosAutorizan")%>">
 <input type="hidden" name="numeroCuentaCargo" value="<%= datos.get("numeroCuentaCargo")%>">
-<input type="hidden" name="montoCuentaCargo" value="<%= datos.get("montoCuentaCargo")%>">
+<input type="hidden" name="monedaCuentaCargo" value="<%= datos.get("monedaCuentaCargo")%>">
 <input type="hidden" name="numeroCuentaAbono" value="<%= datos.get("numeroCuentaAbono")%>">
-<input type="hidden" name="montoCuentaAbono" value="<%= datos.get("montoCuentaAbono")%>">
-<input type="hidden" name="nombreBeneficiario" value="<%= datos.get("nombreBeneficiario")%>">
-<input type="hidden" name="tipoDocumento" value="<%= datos.get("tipoDocumento")%>">
-<input type="hidden" name="numeroDocumento" value="<%= datos.get("numeroDocumento")%>">
+<input type="hidden" name="monedaCuentaAbono" value="<%= datos.get("monedaCuentaAbono")%>">
+<input type="hidden" name="titularCuentaAbono" value="<%= datos.get("titularCuentaAbono")%>">
 </center>
 </form>

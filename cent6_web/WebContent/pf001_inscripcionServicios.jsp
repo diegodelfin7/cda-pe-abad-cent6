@@ -124,30 +124,32 @@ if(hora.length()==4)
 							<th colspan="2" id="nue">Inscripción - Operación Frecuente</th>
 						</tr>
 						<tr class="tr_blanco">
-							<td class="td_izq_color">Operación</td>
-							<td class="td_der_blan"><%=request.getParameter("operacion")%></td>
+							<td class="td_izq_color">Servicio</td>
+							<td class="td_der_blan"><%=request.getParameter("servicio")%></td>
 						</tr>
 						<tr class="tr_gris">
-							<td class="td_izq_color">Usuario(s) que autoriza(n)</td>
-							<td class="td_der_blan">&nbsp;<%= request.getParameter("usuariosAutorizan")%></td>
+							<td class="td_izq_color">Número de Cuenta de Cargo</td>
+							<td class="td_der_blan">&nbsp;<%= request.getParameter("numeroCuentaCargo")%>&nbsp;&nbsp;&nbsp;<%= request.getParameter(("montoCuentaCargo")%></td>
 						</tr>
 
 						<tr class="tr_blanco">
-							<td class="td_izq_color">Número de Cuenta de Cargo</td>
-							<td class="td_der_blan"><%= request.getParameter("numeroCuentaCargo")%>&nbsp;&nbsp;&nbsp;<%= request.getParameter("monedaCuentaCargo")%></td>
+							<td class="td_izq_color">Número de Suministro</td>
+							<td class="td_der_blan">&nbsp;<%= request.getParameter("numeroSuministro")%></td>
 						</tr>
-						
-						<tr class="tr_blanco">
-							<td class="td_izq_color">Número de Cuenta de Abono</td>
-							<td class="td_der_blan">&nbsp;<%= request.getParameter("numeroCuentaAbono")%>&nbsp;&nbsp;&nbsp;<%= request.getParameter("monedaCuentaAbono")%></td>
+						<tr class="tr_gris">
+							<td class="td_izq_color">Titular del Servicio</td>
+							<td class="td_der_blan"><%= request.getParameter("titularServicio")%></td>
 						</tr>
-						
 						<tr class="tr_blanco">
-							<td class="td_izq_color">Titular de la Cuenta de Abono</td>
-							<td class="td_der_blan"><%= request.getParameter("titularCuentaAbono")%></td>
+							<td class="td_izq_color">Importe pagado</td>
+							<td class="td_der_blan"><%= request.getParameter("importePagado")%>&nbsp;&nbsp;&nbsp;<%= request.getParameter(("monedaPago")%></td>
+						</tr>
+						<tr class="tr_gris">
+							<td class="td_izq_color">Usuarios que autorizan</td>
+							<td class="td_der_blan"><%= request.getParameter("usuariosAutorizan")%></td>
 						</tr>
 						<!--Fecha Opeeración -->
-						<tr class="tr_gris">
+						<tr class="tr_blanco">
 							<td class="td_izq_color">Fecha / Hora</td>
 							<%String fecha=(String)traspaso.get("fechoper");
 							  fecha=fecha.substring(8,10)+"/"+fecha.substring(5,7)+"/"+fecha.substring(0,4);

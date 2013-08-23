@@ -125,37 +125,47 @@ if(hora.length()==4)
 						</tr>
 						<tr class="tr_blanco">
 							<td class="td_izq_color">Operación</td>
-							<td class="td_der_blan"><%=request.getParameter("Operacion")%></td>
+							<td class="td_der_blan"><%=request.getParameter("operacion")%></td>
 						</tr>
 						<tr class="tr_gris">
 							<td class="td_izq_color">Usuario que autoriza-1ra Firma</td>
-							<td class="td_der_blan"><%=request.getParameter("UsuarioAutoriza")%></td>
+							<td class="td_der_blan"><%=request.getParameter("usuarioAutoriza")%></td>
 						</tr>
-						<!--Número de Cuenta de Cargo-->
 						<tr class="tr_blanco">
 							<td class="td_izq_color">Número de Cuenta de Cargo</td>
-							<td class="td_der_blan">&nbsp;<%= request.getParameter("NumCuentaCargo")%>&nbsp;&nbsp;&nbsp;<%= request.getParameter(("MonCuentaCargo")%></td>
+							<td class="td_der_blan">&nbsp;<%= request.getParameter("numeroCuentaCargo")%>&nbsp;&nbsp;&nbsp;<%= request.getParameter(("montoCuentaCargo")%></td>
 						</tr>
 
-						<!--Número de Cuenta de Abono-->
 						<tr class="tr_gris">
 							<td class="td_izq_color">Número de Cuenta de Abono</td>
-							<td class="td_der_blan">&nbsp;<%= request.getParameter("NumeroCtaBenef")%>&nbsp;&nbsp;&nbsp;<%= request.getParameter("MonCuentaAbono")%></td>
+							<td class="td_der_blan">&nbsp;<%= request.getParameter("numeroCuentaAbono")%>&nbsp;&nbsp;&nbsp;<%= request.getParameter("montoCuentaAbono")%></td>
 						</tr>
-						<!--Titular de la Cuenta de Abono-->
 						<tr class="tr_blanco">
-							<td class="td_izq_color">Titular de la Cuenta de Abono</td>
-							<td class="td_der_blan">&nbsp;<%= request.getParameter("TitCuentaAbono")%></td>
+							<td class="td_izq_color">Nombre  del Beneficiario</td>
+							<td class="td_der_blan"><%= request.getParameter("nombreBeneficiario")%></td>
 						</tr>
-
-
-
+						<tr class="tr_gris">
+							<td class="td_izq_color">Dirección del Beneficiario</td>
+							<td class="td_der_blan"><%= request.getParameter("direccionBeneficiario")%></td>
+						</tr>
+						<tr class="tr_blanco">
+							<td class="td_izq_color">Motivo</td>
+							<td class="td_der_blan"><%= request.getParameter("motivoTransferencia")%></td>
+						</tr>
+						<tr class="tr_gris">
+							<td class="td_izq_color">Nombre del Banco Pagador</td>
+							<td class="td_der_blan"><%= request.getParameter("nombreBancoPagador")%></td>
+						</tr>
+						<tr class="tr_blanco">
+							<td class="td_izq_color">Dirección Banco Pagador</td>
+							<td class="td_der_blan"><%= request.getParameter("direccionBancoPagador")%></td>
+						</tr>
 						<!--Fecha Opeeración -->
 						<tr class="tr_gris">
 							<td class="td_izq_color">Fecha / Hora</td>
 							<%String fecha=(String)traspaso.get("fechoper");
-  fecha=fecha.substring(8,10)+"/"+fecha.substring(5,7)+"/"+fecha.substring(0,4);
-  %>
+							  fecha=fecha.substring(8,10)+"/"+fecha.substring(5,7)+"/"+fecha.substring(0,4);
+							  %>
 							<td class="td_der_blan">&nbsp;<%= fecha%>&nbsp;&nbsp;&nbsp;<%=hora%></td>
 						</tr>
 

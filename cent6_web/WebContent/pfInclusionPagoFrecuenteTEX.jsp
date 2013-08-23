@@ -17,12 +17,17 @@
 </tr>
 </table>
 <!-- datos enviados para el formulario -->
-<input type="hidden" name="Operacion" value="Transferencias a cuentas de terceros"> 
-<input type="hidden" name="UsuarioAutoriza" value="<%= datos.get("NombreAbono")%>">
-<input type="hidden" name="NumCuentaCargo" value="<%= datos.get("CtaOrd")%>">
-<input type="hidden" name="MonCuentaCargo" value="<%= datos.get("monedactaord")%>">
-<input type="hidden" name="NumCuentaAbono" value="<%= datos.get("NumeroCtaBenef")%>">
-<input type="hidden" name="MonCuentaAbono" value="<%= datos.get("monedactabenef")%>">
-<input type="hidden" name="TitCuentaAbono" value="<%= datos.get("NombreAbono")%>">
+<input type="hidden" name="operacion" value="Transferencias al exterior"> 
+<input type="hidden" name="usuarioAutoriza" value="<%= datos.get("usuarioAutoriza")%>">
+<input type="hidden" name="numeroCuentaCargo" value="<%= datos.get("numeroCuentaCargo")%>">
+<input type="hidden" name="montoCuentaCargo" value="<%= datos.get("montoCuentaCargo")%>">
+<input type="hidden" name="numeroCuentaAbono" value="<%= datos.get("numeroCuentaAbono")%>">
+<input type="hidden" name="montoCuentaAbono" value="<%= datos.get("montoCuentaAbono")%>">
+<input type="hidden" name="nombreBeneficiario" value="<%= datos.get("nombreBeneficiario")%>">
+<input type="hidden" name="direccionBeneficiario" value="<%= datos.get("direccionBeneficiario")%>">
+<input type="hidden" name="motivoTransferencia" value="<%= datos.get("motivoTransferencia")%>">
+<input type="hidden" name="nombreBancoPagador" value="<%= datos.get("nombreBancoPagador")%>">
+<input type="hidden" name="direccionBancoPagador" value="<%= datos.get("direccionBancoPagador")%>">
+
 </center>
 </form>
