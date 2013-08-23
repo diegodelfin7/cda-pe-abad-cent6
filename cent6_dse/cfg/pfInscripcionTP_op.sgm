@@ -58,10 +58,7 @@
 
 <fmtDef id=InscripcionTPOPHTMLFmt>
 	<fHTMLReq>		
-		<fString dataName=Servicio>
-		<fString dataName=CuentaAbono>
-		<fString dataName=MonedaCuentaAbono>
-		<fString dataName=NombreBeneficiario>
+	
 
 	</fHTMLReq>
 </fmtDef>	
