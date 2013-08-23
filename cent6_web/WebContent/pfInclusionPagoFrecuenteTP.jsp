@@ -15,13 +15,13 @@
 </tr>
 </table>
 <!-- datos enviados para el formulario -->
-<input type="hidden" name="Operacion" value="Transferencias a cuentas de terceros"> 
-<input type="hidden" name="UsuarioAutoriza" value="<%= datos.get("NombreAbono")%>">
-<input type="hidden" name="NumCuentaCargo" value="<%= datos.get("CtaOrd")%>">
-<input type="hidden" name="MonCuentaCargo" value="<%= datos.get("monedactaord")%>">
-<input type="hidden" name="NumCuentaAbono" value="<%= datos.get("NumeroCtaBenef")%>">
-<input type="hidden" name="MonCuentaAbono" value="<%= datos.get("moendactabenef")%>">
-<input type="hidden" name="TitCuentaAbono" value="<%= datos.get("NombreAbono")%>">
+<input type="hidden" name="operacion" value="Transferencias a cuentas de terceros"> 
+<input type="hidden" name="usuarioAutoriza" value="<%= datos.get("usuAutoriza")%>">
+<input type="hidden" name="numCuentaCargo" value="<%= datos.get("cuentaCargo")%>">
+<input type="hidden" name="monCuentaCargo" value="<%= datos.get("monedaCuentaCar")%>">
+<input type="hidden" name="numCuentaAbono" value="<%= datos.get("cuentaAbono")%>">
+<input type="hidden" name="monCuentaAbono" value="<%= datos.get("monedaCuentaAbono")%>">
+<input type="hidden" name="titCuentaAbono" value="<%= datos.get("titCuentaAbono")%>">
 
 
 </center>
