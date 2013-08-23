@@ -16,5 +16,13 @@
 	</td>
 </tr>
 </table>
+<!-- datos enviados para el formulario -->
+<input type="hidden" name="Operacion" value="Transferencias a cuentas de terceros"> 
+<input type="hidden" name="UsuarioAutoriza" value="<%= datos.get("NombreAbono")%>">
+<input type="hidden" name="NumCuentaCargo" value="<%= datos.get("CtaOrd")%>">
+<input type="hidden" name="MonCuentaCargo" value="<%= datos.get("monedactaord")%>">
+<input type="hidden" name="NumCuentaAbono" value="<%= datos.get("NumeroCtaBenef")%>">
+<input type="hidden" name="MonCuentaAbono" value="<%= datos.get("monedactabenef")%>">
+<input type="hidden" name="TitCuentaAbono" value="<%= datos.get("NombreAbono")%>">
 </center>
 </form>
