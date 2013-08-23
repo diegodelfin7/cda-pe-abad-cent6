@@ -127,27 +127,27 @@ if(hora.length()==4)
 						</tr>
 						<tr class="tr_blanco">
 							<td class="td_izq_color">Operación</td>
-							<td class="td_der_blan">NOMBRE OPERACION</td>
+							<td class="td_der_blan"><%= datos.get("Operacion")%></td>
 						</tr>
 						<tr class="tr_gris">
 							<td class="td_izq_color">Usuario que autoriza-1ra Firma</td>
-							<td class="td_der_blan">USUARIO</td>
+							<td class="td_der_blan"><%= datos.get("UsuarioAutoriza")%></td>
 						</tr>
 						<!--Número de Cuenta de Cargo-->
 						<tr class="tr_blanco">
 							<td class="td_izq_color">Número de Cuenta de Cargo</td>
-							<td class="td_der_blan">&nbsp;<%= datos.get("CtaOrd")%>&nbsp;&nbsp;&nbsp;<%= datos.get("monedactaord")%></td>
+							<td class="td_der_blan">&nbsp;<%= datos.get("NumCuentaCargo")%>&nbsp;&nbsp;&nbsp;<%= datos.get("MonCuentaCargo")%></td>
 						</tr>
 
 						<!--Número de Cuenta de Abono-->
 						<tr class="tr_gris">
 							<td class="td_izq_color">Número de Cuenta de Abono</td>
-							<td class="td_der_blan">&nbsp;<%= datos.get("NumeroCtaBenef")%>&nbsp;&nbsp;&nbsp;<%= datos.get("moendactabenef")%></td>
+							<td class="td_der_blan">&nbsp;<%= datos.get("NumCuentaAbono")%>&nbsp;&nbsp;&nbsp;<%= datos.get("MonCuentaAbono")%></td>
 						</tr>
 						<!--Titular de la Cuenta de Abono-->
 						<tr class="tr_blanco">
 							<td class="td_izq_color">Titular de la Cuenta de Abono</td>
-							<td class="td_der_blan">&nbsp;<%= datos.get("NombreAbono")%></td>
+							<td class="td_der_blan">&nbsp;<%= datos.get("TitCuentaAbono")%></td>
 						</tr>
 
 
@@ -155,7 +155,7 @@ if(hora.length()==4)
 						<!--Fecha Opeeración -->
 						<tr class="tr_gris">
 							<td class="td_izq_color">Fecha / Hora</td>
-							<%String fecha=(String)traspaso.get("fechoper");
+							<%String fecha=(String)datos.get("fechoper");
   fecha=fecha.substring(8,10)+"/"+fecha.substring(5,7)+"/"+fecha.substring(0,4);
   %>
 							<td class="td_der_blan">&nbsp;<%= fecha%>&nbsp;&nbsp;&nbsp;<%=hora%></td>
@@ -170,7 +170,7 @@ if(hora.length()==4)
 						<tr class="tr_blanco">
 							<td class="td_izq_color" colspan="2">Descripción para
 								recordar su pago&nbsp;&nbsp;&nbsp;&nbsp; <input type="text"
-								value="DESCRIPCION" />
+								id="AliasAsoc" />
 							</td>
 						</tr>
 					</table>
@@ -204,7 +204,7 @@ if(hora.length()==4)
 										<tr class="tr_blanco">
 											<td class="td_izq_color" colspan="2"><input
 												type="checkbox" />Mensaje de Texto [SMS] a Teléfono Móvil<br>
-												<select><option>CLAIRO</option></select><SELECT
+												<select><option>CLARO</option><option>MOVISTAR</option></select><SELECT
 												name="Localidad1" size="1">
 
 													<OPTION value="1">Lima-Callao</OPTION>
