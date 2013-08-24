@@ -19,7 +19,7 @@
 <!-- datos enviados para el formulario -->
 <input type="hidden" name="Operacion" value="Pago de Instituciones"> 
 <input type="hidden" name="usuariosAutorizan" value="<%= datos.get("usuariosAutorizan")%>">
-<input type="hidden" name="numeroCtaCargo" value="<%= datos.get("numeroCtaCargo")%>">
+<input type="hidden" name="numeroCuentaCargo" value="<%= datos.get("numeroCuentaCargo")%>">
 <input type="hidden" name="nombreEntidad" value="<%= datos.get("nombreEntidad")%>">
 <input type="hidden" name="numeroTarjeta" value="<%= datos.get("numeroTarjeta")%>">
 </center>

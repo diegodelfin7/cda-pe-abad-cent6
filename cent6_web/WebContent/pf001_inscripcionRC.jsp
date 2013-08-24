@@ -134,7 +134,7 @@ if(hora.length()==4)
 
 						<tr class="tr_blanco">
 							<td class="td_izq_color">Número de Cuenta de Cargo</td>
-							<td class="td_der_blan">&nbsp;<%= request.getParameter("numeroCtaCargo")%></td>
+							<td class="td_der_blan">&nbsp;<%= request.getParameter("numeroCuentaCargo")%></td>
 						</tr>
 						<tr class="tr_gris">
 							<td class="td_izq_color">Nombre de la Entidad</td>
