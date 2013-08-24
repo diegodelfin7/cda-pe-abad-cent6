@@ -34,12 +34,12 @@
 
 <! DATOS --------------------------------------------------------------------------->
 <kColl id=pfPagoFrecuentePI_pr-data>
-	  <field id=prUsuAutoriza >
-	  <field id=prCuentaCargo >
-  	  <field id=prMonedaCuentaCar >
-  	  <field id=prCuentaAbono >
-  	  <field id=prMonedaCuentaAbo >
-  	  <field id=prTitCuentaAbono >
+	  <field id=prUsuariosAutorizan >
+	  <field id=prNumeroCuentaCargo >
+  	  <field id=prMonedaCuentaCargo >
+  	  <field id=prNumeroCuentaAbono >
+  	  <field id=prMonedaCuentaAbono >
+  	  <field id=prTitularCuentaAbono >
 </kColl>
 <! --------------------------------------------------------------------------------->
 

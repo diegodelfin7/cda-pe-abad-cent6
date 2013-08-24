@@ -34,12 +34,13 @@
 
 <! DATOS --------------------------------------------------------------------------->
 <kColl id=pfPagoFrecuenteCCI_pr-data>
-	  <field id=prUsuAutoriza >
-	  <field id=prCuentaCargo >
-  	  <field id=prMonedaCuentaCar >
-  	  <field id=prCuentaAbono >
-  	  <field id=prMonedaCuentaAbo >
-  	  <field id=prTitCuentaAbono >
+	  <field id=prUsuarioAutoriza >
+	  <field id=prNumeroCuentaCargo >
+  	  <field id=prMontoCuentaCargo >
+  	  <field id=prNumeroCuentaAbono >
+  	  <field id=prMontoCuentaAbono >
+  	  <field id=prNombreBeneficiario >
+  	  <field id=prTipoDocumento >
+  	  <field id=prNumeroDocumento >  	    	  
 </kColl>
 <! --------------------------------------------------------------------------------->
-

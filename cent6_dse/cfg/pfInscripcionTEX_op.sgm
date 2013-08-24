@@ -1,0 +1,71 @@
+<! BBVA  ---------------------------------------------------------------------------->
+<! Operación:  PRESENTACION pfInscripcionTEX_op  ------------------------------------->
+
+<! OPERACION ----------------------------------------------------------------------->
+<com.grupobbva.ce.op.pf.OPInscripcionTEX id=pfInscripcionTEX_op operationContext=OperationContext>
+	<refFormat name=jspFormat refId=ErrorOPJspFmt>	
+	<refFormat name=jspFormat refId=InscripcionTEXOPJspFmt>	
+	<refFormat name=htmlRequestFormat refId=InscripcionTEXOPHTMLFmt>
+	<refKColl refId=pfInscripcionTEX_op-data>
+	
+<! --------------------------------------------------------------------------------->
+
+<! ESTADOS --------------------------------------------------------------------------->
+	<navegacionOP>	
+		<estadoOP id=0 accion=inscribir metodo=inscribir requestFmt=InscripcionTEXOPHTMLFmt>
+		<estadoOP id=1 accion=inscribir metodo=inscribir requestFmt=InscripcionTEXOPHTMLFmt>
+		<estadoOP id=ERROR accion=inscribir metodo=inscribir requestFmt=InscripcionTEXOPHTMLFmt>
+	</navegacionOP>		
+	
+	<! SALIDAS --------------------------------------------------------------------------->
+	<resultadoOP>	
+		<salidaOP id=ERROR jspFmt=ErrorOPJspFmt>				
+		<salidaOP id=1 jspFmt=InscripcionTEXOPJspFmt>
+	</resultadoOP>	
+</com.grupobbva.ce.op.pf.OPInscripcionTEX>
+
+<! DATOS --------------------------------------------------------------------------->
+<kColl id=pfInscripcionTEX_op-data>
+	<field id=Error>
+</kColl>
+		
+<! FORMATOS --------------------------------------------------------------------------->
+<fmtDef id=ErrorOPJspFmt>
+	<fJsp>
+		<fString dataName=s_cod_nomconta description=usuario>
+		<fString dataName=s_fecha_host description=fecha_host>
+		<fString dataName=s_hora_host description=hora_host>
+		<fString dataName=Error description=mensaje>
+	</fJsp>
+</fmtDef>
+
+<fmtDef id=InscripcionTEXOPJspFmt>
+	<fJsp>
+
+		<fString dataName=s_fecha_host description=fecha_host>
+		<fString dataName=s_hora_host description=hora_host>
+
+		<fString dataName=prUsuarioAutoriza description=usuarioAutoriza>
+		<fString dataName=prNumeroCuentaCargo description=numeroCuentaCargo>
+		<fString dataName=prMontoCuentaCargo description=montoCuentaCargo>
+		<fString dataName=prNumeroCuentaAbono description=numeroCuentaAbono>
+		<fString dataName=prMontoCuentaAbono description=montoCuentaAbono>
+		<fString dataName=prNombreBeneficiario description=nombreBeneficiario>
+		<fString dataName=prDireccionBeneficiario description=direccionBeneficiario>
+		<fString dataName=prMotivoTransferencia description=motivoTransferencia>
+		<fString dataName=prNombreBancoPagador description=nombreBancoPagador>
+		<fString dataName=prDireccionBancoPagador description=direccionBancoPagador>
+							               
+	</fJsp>	
+</fmtDef>
+
+
+<fmtDef id=InscripcionTEXOPHTMLFmt>
+	<fHTMLReq>		
+	
+
+	</fHTMLReq>
+</fmtDef>	
+
+
+<! --------------------------------------------------------------------------------->
