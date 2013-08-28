@@ -217,7 +217,7 @@ if(hora.length()==4)
 								</div>
 								<table>
 						<tr class="tr_gris">
-							<td class="td_izq_color" colspan="2"><input  type="button" value="Volver al resultado de la operación"/>
+							<td class="td_izq_color" colspan="2" align="center"><input  type="button" value="Volver al resultado de la operación"/>
 							</td>
 						</tr>
 						<tr class="tr_gris">
