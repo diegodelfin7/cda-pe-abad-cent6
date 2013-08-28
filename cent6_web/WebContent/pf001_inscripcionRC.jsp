@@ -246,6 +246,7 @@ if(hora.length()==4)
 													<OPTION value="72">Tumbes</OPTION>
 
 													<OPTION value="61">Ucayali</OPTION>
+													</SELECT>
 
 													<input type="text" id="txtTelefono" />
 													

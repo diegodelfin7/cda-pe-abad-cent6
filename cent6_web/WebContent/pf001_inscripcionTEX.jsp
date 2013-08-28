@@ -262,10 +262,10 @@ if(hora.length()==4)
 													<OPTION value="72">Tumbes</OPTION>
 
 													<OPTION value="61">Ucayali</OPTION>
-
-													<input type="text" id="txtTelefono" />
+													</SELECT>
 													
-												<button name="btnEnviar" onclick='duplicarTelefono();'>+</button>
+													<input type="text" id="txtTelefono" />
+												    <button name="btnEnviar" onclick='duplicarTelefono();'>+</button>
 											</td>
 										</tr>
 									</table>
