@@ -2,7 +2,7 @@
 <! Operación:  PRESENTACION pfInscripcionCCI_op  ------------------------------------->
 
 <! OPERACION ----------------------------------------------------------------------->
-<com.grupobbva.ce.op.pf.OCCInscripcionCCI id=pfInscripcionCCI_op operationContext=OperationContext>
+<com.grupobbva.ce.op.pf.OPInscripcionCCI id=pfInscripcionCCI_op operationContext=OperationContext>
 	<refFormat name=jspFormat refId=ErrorOPJspFmt>	
 	<refFormat name=jspFormat refId=InscripcionCCIOPJspFmt>	
 	<refFormat name=htmlRequestFormat refId=InscripcionCCIOPHTMLFmt>
