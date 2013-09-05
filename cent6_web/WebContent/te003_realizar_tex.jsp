@@ -74,16 +74,14 @@ function enviar(valor)
 		
 		document.frmInscripcion.operacion.value="Transferencias al Exterior";
 		
-		document.frmInscripcion.usuarioAutoriza.value="<%= datos.get("usuarioAutoriza")%>";
-		document.frmInscripcion.numCuentaCargo.value="<%= datos.get("numeroCuentaCargo")%>";
-		document.frmInscripcion.monCuentaCargo.value="<%= datos.get("montoCuentaCargo")%>";
-		document.frmInscripcion.numCuentaAbono.value="<%= datos.get("numeroCuentaAbono")%>";
+		document.frmInscripcion.usuarioAutoriza.value="<%= datos.get("usuario")%>";
+		document.frmInscripcion.numCuentaCargo.value="<%= datos.get("NROCTA")%>";
+		document.frmInscripcion.numCuentaAbono.value="<%= datos.get("ctaAbono")%>";
 		document.frmInscripcion.monCuentaAbono.value="<%= datos.get("montoCuentaAbono")%>";
-		document.frmInscripcion.nombreBeneficiario.value="<%= datos.get("nombreBeneficiario")%>";
-		document.frmInscripcion.montoCuentaCargo.value="<%= datos.get("montoCuentaCargo")%>";
-		document.frmInscripcion.motivoTransferencia.value="<%= datos.get("motivoTransferencia")%>";
-		document.frmInscripcion.nombreBancoPagador.value="<%= datos.get("nombreBancoPagador")%>";
-		document.frmInscripcion.direccionBancoPagador.value="<%= datos.get("direccionBancoPagador")%>";
+		document.frmInscripcion.nombreBeneficiario.value="<%= datos.get("nomBenef")%>";
+		document.frmInscripcion.motivoTransferencia.value="<%= datos.get("motivo1")%>";
+		document.frmInscripcion.nombreBancoPagador.value="<%= datos.get("sBanNombre")%>";
+		document.frmInscripcion.direccionBancoPagador.value="<%= datos.get("sconDirecBancoPaga")%>";
 		
 		document.frmInscripcion.boton1.disabled=true;
 		document.frmInscripcion.submit();
