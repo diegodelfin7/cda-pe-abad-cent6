@@ -262,7 +262,18 @@ if (document.layers) {
 </table>
 
 <jsp:include page="cf001_ing_datos.jsp"  flush="true"/> 
+
+<% 
+String flagView = "";
+
+if(request.getParameter("flagVolver")!=null ){
+	flagView = request.getParameter("flagVolver");
+}
+if(!flagView.equals("")) { %>
 <jsp:include page="pfInclusionPagoFrecuenteTP.jsp"  flush="true"/>
+<%} %>
+
+
 </div>  
 </center>	
 </div>
