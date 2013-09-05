@@ -43,12 +43,20 @@ function enviar(valor)
 	document.cuerpo.submit();
 	document.cuerpo.b1.disabled = true;
 }
-
-function inscribir() {
+function inscribir(){
 	
-	document.cuerpo.action= "OperacionCBTFServlet?proceso=pfPagoFrecuenteTP_pr&operacion=pfInscripcionTP_op&accion=continuar";
-	document.cuerpo.submit();
-	document.cuerpo.boton1.disabled = true;
+	document.frmInscripcion.operacion.value="Transferencias a Terceros";
+	document.frmInscripcion.usuarioAutoriza.value="<%= datos.get("usuario_autorizan")%>";
+	document.frmInscripcion.numCuentaCargo.value="<%= datos.get("CtaOrd")%>";
+	document.frmInscripcion.monCuentaCargo.value="<%= datos.get("monedactaord")%>";
+	document.frmInscripcion.numCuentaAbono.value="<%= datos.get("NumeroCtaBenef")%>";
+	document.frmInscripcion.monCuentaAbono.value="<%= datos.get("moendactabenef")%>";
+	document.frmInscripcion.titCuentaAbono.value="<%= datos.get("NombreAbono")%>";
+	
+	document.frmInscripcion.boton1.disabled=true;
+	document.frmInscripcion.submit();
+
+
 }
 </script>
 <script language=JavaScript>
@@ -92,7 +100,7 @@ if (document.layers) {
             out.println("Transferencias - Cuentas de Terceros"); %>
 </h2>
 </div>
-</div>
+</div> 
 
 
 <!--Contenido de la tabla-->
@@ -250,16 +258,11 @@ if (document.layers) {
 	s&aacute;bados, domingos y feriados, se tomar&aacute; como fecha de abono el d&iacute;a
 	siguiente &uacute;til de realizada la operaci&oacute;n.
 	</td>
-	
 </tr>
 </table>
-<!--el "ins" del if vendra del url final de la inscripcion -->
-<% if(request.getParameter(ins)==null) { %>
+
+<jsp:include page="cf001_ing_datos.jsp"  flush="true"/> 
 <jsp:include page="pfInclusionPagoFrecuenteTP.jsp"  flush="true"/>
-<%} %>
-
-<jsp:include page="cf001_ing_datos.jsp"  flush="true"/>  
-
 </div>  
 </center>	
 </div>
