@@ -471,7 +471,13 @@ destino, sin responsabilidad para el BBVA Banco Continental.</td>
 
 
 
-<% if(!(.equals(""))) { %>
+<% 
+String flagView = "";
+if(request.getParameter("flagVolver")!=null ){
+	flagView = request.getParameter("flagVolver");
+}
+
+if(!flagView.equals("")) { %>
  <table cellpadding="3" cellspacing="1" border="0" style="width=550px">
  <tr>
 	<td colspan='2'><jsp:include page="pfInclusionPagoFrecuenteCCI.jsp"  flush="true"/></td>

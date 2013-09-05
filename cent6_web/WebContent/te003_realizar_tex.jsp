@@ -215,9 +215,17 @@ if(!(codSwift.equals(""))){  %>
         </td></tr></table>
 <%}%>
 
- <% if(!(.equals(""))) { %>
-<jsp:include page="pfInclusionPagoFrecuenteTEX.jsp"  flush="true"/>
+
+<% 
+String flagView = "";
+if(request.getParameter("flagVolver")!=null ){
+	flagView = request.getParameter("flagVolver");
+}
+
+if(!flagView.equals("")) { %>
+	<jsp:include page="pfInclusionPagoFrecuenteTEX.jsp"  flush="true"/>
 <%} %>
+
 </center>
  </div>
  </center>

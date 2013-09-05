@@ -507,7 +507,13 @@ function inscribir() {
 	<td colspan='2'>Estimado Cliente, su operación ha sido efectuda. Por favor, tome nota del Número de Operación.</td>
  </tr>
  
- <% if(!(.equals(""))) { %>
+ <% 
+String flagView = "";
+if(request.getParameter("flagVolver")!=null ){
+	flagView = request.getParameter("flagVolver");
+}
+
+if(!flagView.equals("")) { %>
  <table cellpadding="3" cellspacing="1" border="0" style="width=550px">
  <tr>
 	<td colspan='2'><jsp:include page="pfInclusionPagoFrecuenteRC.jsp"  flush="true"/></td>
