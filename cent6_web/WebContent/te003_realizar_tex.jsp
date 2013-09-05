@@ -70,10 +70,25 @@ function enviar(valor)
 	}	
 	document.onmousedown=click;
 	
-	function inscribir() {
-		document.cuerpo.action= "OperacionCBTFServlet?proceso=pfPagoFrecuenteTEX_pr&operacion=pfInscripcionTEX_op&accion=continuar";
-		document.cuerpo.submit();
-		document.cuerpo.boton1.disabled = true;
+	function inscribir(){
+		
+		document.frmInscripcion.operacion.value="Transferencias al Exterior";
+		
+		document.frmInscripcion.usuarioAutoriza.value="<%= datos.get("usuarioAutoriza")%>";
+		document.frmInscripcion.numCuentaCargo.value="<%= datos.get("numeroCuentaCargo")%>";
+		document.frmInscripcion.monCuentaCargo.value="<%= datos.get("montoCuentaCargo")%>";
+		document.frmInscripcion.numCuentaAbono.value="<%= datos.get("numeroCuentaAbono")%>";
+		document.frmInscripcion.monCuentaAbono.value="<%= datos.get("montoCuentaAbono")%>";
+		document.frmInscripcion.nombreBeneficiario.value="<%= datos.get("nombreBeneficiario")%>";
+		document.frmInscripcion.montoCuentaCargo.value="<%= datos.get("montoCuentaCargo")%>";
+		document.frmInscripcion.motivoTransferencia.value="<%= datos.get("motivoTransferencia")%>";
+		document.frmInscripcion.nombreBancoPagador.value="<%= datos.get("nombreBancoPagador")%>";
+		document.frmInscripcion.direccionBancoPagador.value="<%= datos.get("direccionBancoPagador")%>";
+		
+		document.frmInscripcion.boton1.disabled=true;
+		document.frmInscripcion.submit();
+
+
 	}
 	
 // --> 
