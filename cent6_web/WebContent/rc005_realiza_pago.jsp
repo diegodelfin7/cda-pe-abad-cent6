@@ -27,11 +27,17 @@ function enviar(valor)
 	document.cuerpo.b1.disabled = true;
 }
 
-function inscribir() {
-	document.cuerpo.action= "OperacionCBTFServlet?proceso=pfPagoFrecuenteRC_pr&operacion=pfInscripcionRC_op&accion=continuar";
-	document.cuerpo.submit();
-	document.cuerpo.boton1.disabled = true;
+
+
+function inscribir(){
+	document.frmInscripcion.operacion.value="Pago de Instituciones";
+	document.frmInscripcion.usuariosAutorizan.value="<%= datos.get("usuario")%>";
+	document.frmInscripcion.numeroCuentaCargo.value="<%= datos.get("NROCTA")%>";
+	document.frmInscripcion.nombreEntidad.value="<%= datos.get("sDescripcion")%>";
+	document.frmInscripcion.boton1.disabled=true;
+	document.frmInscripcion.submit();
 }
+
 </script>
 </head> 
    

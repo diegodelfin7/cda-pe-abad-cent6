@@ -1,9 +1,7 @@
-<form name="cuerpo" method="post">
-<input type="hidden" name="cadena">
-<input type="hidden" name="funcion">
+<form action="OperacionCBTFServlet?proceso=pfPagoFrecuenteRC_pr&operacion=pfInscripcionRC_op&accion=inscribir" name="frmInscripcion" method="post">
 <center>
 
-<table >
+<table class="oculta">
 <tr>
 	<td align="justify" width="75%">
 		Desea inscribir esta operación como PAGO FRECUENTE?.
@@ -17,10 +15,12 @@
 </tr>
 </table>
 <!-- datos enviados para el formulario -->
-<input type="hidden" name="Operacion" value="Pago de Instituciones"> 
-<input type="hidden" name="usuariosAutorizan" value="<%= datos.get("usuariosAutorizan")%>">
-<input type="hidden" name="numeroCuentaCargo" value="<%= datos.get("numeroCuentaCargo")%>">
-<input type="hidden" name="nombreEntidad" value="<%= datos.get("nombreEntidad")%>">
-<input type="hidden" name="numeroTarjeta" value="<%= datos.get("numeroTarjeta")%>">
+<input type="hidden" name="Operacion"> 
+<input type="hidden" name="usuariosAutorizan">
+<input type="hidden" name="numeroCuentaCargo" >
+<input type="hidden" name="nombreEntidad" >
+<input type="hidden" name="numeroTarjeta" >
+
+
 </center>
 </form>
