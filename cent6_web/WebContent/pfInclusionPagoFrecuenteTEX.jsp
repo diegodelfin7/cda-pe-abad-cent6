@@ -1,6 +1,4 @@
-<form name="cuerpo" method="post">
-<input type="hidden" name="cadena">
-<input type="hidden" name="funcion">
+<form action="OperacionCBTFServlet?proceso=pfPagoFrecuenteTEX_pr&operacion=pfInscripcionTEX_op&accion=inscribir" name="frmInscripcion" method="post">
 <center>
 
 <table >
