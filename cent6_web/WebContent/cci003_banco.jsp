@@ -26,10 +26,18 @@ function enviar(valor)
 	document.cuerpo.submit();
 	  
 }
-function inscribir() {
-	document.cuerpo.action= "OperacionCBTFServlet?proceso=pfPagoFrecuenteCCI_pr&operacion=pfInscripcionCCI_op&accion=continuar";
-	document.cuerpo.submit();
-	document.cuerpo.boton1.disabled = true;
+
+
+function inscribir(){
+	document.frmInscripcion.operacion.value="Pago de Instituciones";
+	document.frmInscripcion.usuarioAutoriza.value="<%= datos.get("usuario")%>";
+	document.frmInscripcion.numeroCuentaCargo.value="<%= datos.get("ctacargo")%>";
+	document.frmInscripcion.montoCuentaCargo.value="<%= datos.get("importe")%>";
+	document.frmInscripcion.nombreBeneficiario.value="<%= datos.get("beneficiario")%>";
+	document.frmInscripcion.tipoDocumento.value="<%= datos.get("DocumentoDescBenef")%>";
+	document.frmInscripcion.numeroDocumento.value="<%= datos.get("NumeroDocBenef")%>";
+	document.frmInscripcion.boton1.disabled=true;
+	document.frmInscripcion.submit();
 }
 </script>
 <style type="text/css">
