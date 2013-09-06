@@ -22,58 +22,97 @@ if(hora.length()==4)
 	
 </script>
 <script language="Javascript">
-	var conteoEmails = 0;
-	function duplicarEmail() {
-		conteoEmails++;
-		var duplicado = '<table style="width: 520px;" border="0"><tr class="tr_blanco"><td class="td_izq_color" colspan="2" ><input type="checkbox"/>Mensaje de correo a la dirección electrónica<br> <input type="text" value="DESCRIPCION" /> <button name="btnEnviar" onclick="duplicarEmail();">+</button></table>';
-		document.getElementById("contenedorEmail").innerHTML = document.getElementById("contenedorEmail").innerHTML	+ duplicado;
-	}
+	function agregarTelefono(tableID) {
+	 
+	 		   var companiaTelefonica = document.getElementById("companiaTelefonica").value;	
+	 		   var numeroTelefono = document.getElementById("txtTelefono").value; 	
+	 			
+               var table = document.getElementById(tableID);
+               var rowCount = table.rows.length;
+               var row = table.insertRow(rowCount);
+                
+               var cell00 = row.insertCell(0);
+               var element00 = document.createElement('label');
+			   element00.innerHTML = rowCount; 
+               cell00.appendChild(element00);
+               
+               var cell01 = row.insertCell(1);
+               var element01 = document.createElement("label");
+               element01.innerHTML = companiaTelefonica;
+               cell01.appendChild(element01);
+               
+               var cell02 = row.insertCell(2);
+               var element02 = document.createElement("label");
+               element02.innerHTML = numeroTelefono;
+               cell02.appendChild(element02);
+               
+               var cell03 = row.insertCell(3);
+               var element03 = document.createElement("input");
+               element03.type = "checkbox";
+               cell03.appendChild(element03);
+     }
 
-	var conteoTelefonos = 0;
-	function duplicarTelefono() {
-	
-	var comboLocalidades = 	'<SELECT name="Localidad1" size="1">'+
-							'<OPTION value="1">Lima-Callao</OPTION>'+
-							'<OPTION value="41">Amazonas</OPTION>'+
-							'<OPTION value="43">Ancash</OPTION>'+
-							'<OPTION value="83">Apurimac</OPTION>'+
-							'<OPTION value="54">Arequipa</OPTION>'+
-							'<OPTION value="66">Ayacucho</OPTION>'+
-							'<OPTION value="76">Cajamarca</OPTION>'+
-							'<OPTION value="63">Cerro de Pasco</OPTION>'+
-							'<OPTION value="84">Cusco</OPTION>'+
-							'<OPTION value="67">Huancavelica</OPTION>'+
-							'<OPTION value="62">Huanuco</OPTION>'+
-							'<OPTION value="56">Ica</OPTION>'+
-							'<OPTION value="64">Junin</OPTION>'+
-							'<OPTION value="44">La Libertad</OPTION>'+
-							'<OPTION value="74">Lambayeque</OPTION>'+
-							'<OPTION value="65">Loreto</OPTION>'+
-							'<OPTION value="82">Madre de Dios</OPTION>'+
-							'<OPTION value="53">Moquegua</OPTION>'+
-							'<OPTION value="73">Piura</OPTION>'+
-							'<OPTION value="51">Puno</OPTION>'+
-							'<OPTION value="42">San Martin</OPTION>'+
-							'<OPTION value="52">Tacna</OPTION>'+
-							'<OPTION value="72">Tumbes</OPTION>'+
-							'<OPTION value="61">Ucayali</OPTION>'+
-					'</SELECT>';
-	
-		conteoTelefonos++;
-		var contenidoDivTelefono = '<table style="width: 520px;" border="0">'
-				+ '<tr class="tr_blanco">'
-				+ '<td class="td_izq_color" colspan="2" >'
-				+ '<input type="checkbox"/>Mensaje de Texto [SMS] a Teléfono Móvil<br>'
-				+ '<select><option>CLAIRO</option></select>'
-				+ comboLocalidades
-				+ '<input type="text" id="txtTelefono" />'
-				+ '<button name="btnEnviar" onclick="duplicarTelefono()">+</button>'
-				+ '</td>' + '</tr>' + '</table>';
-
-		document.getElementById("contenedorTelefonos").innerHTML = document
-				.getElementById("contenedorTelefonos").innerHTML
-				+ contenidoDivTelefono;
-	}
+ function agregarEmail(tableID) {
+	 
+	 		   var email = document.getElementById("txtEmail").value; 	
+	 			
+               var table = document.getElementById(tableID);
+               var rowCount = table.rows.length;
+               var row = table.insertRow(rowCount);
+                
+               var cell00 = row.insertCell(0);
+               var element00 = document.createElement('label');
+			   element00.innerHTML = rowCount; 
+               cell00.appendChild(element00);
+               
+               var cell01 = row.insertCell(1);
+               var element01 = document.createElement("label");
+               element01.innerHTML = email;
+               cell01.appendChild(element01);
+               
+               
+               var cell02 = row.insertCell(2);
+               var element02 = document.createElement("input");
+               element02.type = "checkbox";
+               cell02.appendChild(element02);
+     }
+     
+     
+     function deleteTelefono(tableID) {
+          try {
+	           var table = document.getElementById(tableID);
+	           var rowCount = table.rows.length;
+	           for(var i=0; i<rowCount; i++) {
+	                var row = table.rows[i];
+	                var chkbox = row.cells[3].childNodes[0];
+	                if(null != chkbox && true == chkbox.checked) {
+	                     table.deleteRow(i);
+	                     rowCount--;
+	                     i--;
+	                }
+	           }
+          }catch(e) {
+               alert(e);
+          }
+     }
+     
+      function deleteEmail(tableID) {
+          try {
+	           var table = document.getElementById(tableID);
+	           var rowCount = table.rows.length;
+	           for(var i=0; i<rowCount; i++) {
+	                var row = table.rows[i];
+	                var chkbox = row.cells[2].childNodes[0];
+	                if(null != chkbox && true == chkbox.checked) {
+	                     table.deleteRow(i);
+	                     rowCount--;
+	                     i--;
+	                }
+	           }
+          }catch(e) {
+               alert(e);
+          }
+     }
 
 	function click(e) {
 		var message = "BBVA Banco Continental - Derechos Reservados 2001";
@@ -198,62 +237,22 @@ if(hora.length()==4)
 										<tr class="tr_blanco">
 											<td class="td_izq_color" colspan="2"><input
 												type="checkbox" />Mensaje de Texto [SMS] a Teléfono Móvil<br>
-												<select><option>CLAIRO</option></select><SELECT
-												name="Localidad1" size="1">
+												<select name="companiaTelefonica" size="1">
+															<OPTION value="TELE">Movistar</OPTION>
+															<OPTION value="CLAR">Claro</OPTION>
 
-													<OPTION value="1">Lima-Callao</OPTION>
+												</select>
 
-													<OPTION value="41">Amazonas</OPTION>
-
-													<OPTION value="43">Ancash</OPTION>
-
-													<OPTION value="83">Apurimac</OPTION>
-
-													<OPTION value="54">Arequipa</OPTION>
-
-													<OPTION value="66">Ayacucho</OPTION>
-
-													<OPTION value="76">Cajamarca</OPTION>
-
-													<OPTION value="63">Cerro de Pasco</OPTION>
-
-													<OPTION value="84">Cusco</OPTION>
-
-													<OPTION value="67">Huancavelica</OPTION>
-
-													<OPTION value="62">Huanuco</OPTION>
-
-													<OPTION value="56">Ica</OPTION>
-
-													<OPTION value="64">Junin</OPTION>
-
-													<OPTION value="44">La Libertad</OPTION>
-
-													<OPTION value="74">Lambayeque</OPTION>
-
-													<OPTION value="65">Loreto</OPTION>
-
-													<OPTION value="82">Madre de Dios</OPTION>
-
-													<OPTION value="53">Moquegua</OPTION>
-
-													<OPTION value="73">Piura</OPTION>
-
-													<OPTION value="51">Puno</OPTION>
-
-													<OPTION value="42">San Martin</OPTION>
-
-													<OPTION value="52">Tacna</OPTION>
-
-													<OPTION value="72">Tumbes</OPTION>
-
-													<OPTION value="61">Ucayali</OPTION>
-													
-													</SELECT>
-
-													<input type="text" id="txtTelefono" />
-													
-												<button name="btnEnviar" onclick='duplicarTelefono();'>+</button>
+													<input type="text" id="txtTelefono"  name="txtTelefono" value="TELEFONO"/>
+													<button name="btnAgregar" onclick="agregarTelefono('tablaTelefonos');">+</button>
+													<button name="btnEliminar" onclick="deleteTelefono('tablaTelefonos');">-</button>
+											</td>
+										</tr>
+										<tr class="tr_blanco">
+											<td class="td_izq_color" colspan="2">
+												<table id="tablaTelefonos" border="1" style="width: 407px;" >
+													<tr><td style="width: 20px; ">No.</td><td style="width: 73px; ">Operador</td><td>Teléfono</td><td>Acción</td></tr>
+												</table>
 											</td>
 										</tr>
 									</table>
@@ -267,10 +266,18 @@ if(hora.length()==4)
 										<tr class="tr_blanco">
 											<td class="td_izq_color" colspan="2"><input
 												type="checkbox" />Mensaje de correo a la dirección
-												electrónica<br> <input type="text" value="DESCRIPCION" />
-												<button name="btnEnviar" onclick='duplicarEmail();'>+</button>
+												electrónica<br> <input id="txtEmail" name="txtEmail" type="text" value="E-MAIL" />
+												<button name="btnEnviar" onclick="agregarEmail('tablaEmails');">+</button>
+												<button name="btnEliminar" onclick="deleteEmail('tablaEmails');">-</button>
 											</td>
 
+										</tr>
+											<tr class="tr_blanco">
+											<td class="td_izq_color" colspan="2">
+											<table id="tablaEmails" name="tablaEmails" border="1" style="width: 520px;" >
+												<tr><td style="width: 28px; ">No.</td><td>Operador</td><td>Accion</td></tr>
+											</table>
+											</td>
 										</tr>
 									</table>
 								</div>
