@@ -35,14 +35,10 @@
 <! DATOS --------------------------------------------------------------------------->
 <kColl id=pfPagoFrecuenteFMRF_pr-data>
 	  <field id=prOperacion >
-  	  <field id=prNumeroCuentaCargo >
-  	  <field id=prMonedaCuentaCargo >
-  	  <field id=prNumeroFondosMutuos >
-  	  <field id=prNumeroCuentaAbono >
-  	  <field id=prTipoFondo >
-  	  <field id=prModalidad >
-  	  <field id=prCantidad >
-  	  <field id=prUsuarioAutoriza >
-  	  
+	  <field id=prNumeroFondosMutuos >
+	  <field id=prTipoFondo >
+	  <field id=prModalidad >
+	  <field id=prCantidad >
+	  <field id=prUsuarioAutoriza >
 </kColl>
 <! --------------------------------------------------------------------------------->
