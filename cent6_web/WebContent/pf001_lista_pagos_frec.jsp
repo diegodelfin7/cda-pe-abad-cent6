@@ -137,7 +137,7 @@ if(hora.length()==4)
 			
 			<p align="center">
 				(*) La columna Día se refiere al día del mes en que se enviará el aviso recordatorio
-			<br><br><br>MIS OPERACIONES FRECUENTES    </strong> <select ><option>Usuario</option></select> <select ><option>Servicio</option></select>
+			<br><br><br>OTRAS OPERACIONES FRECUENTES    </strong> <select ><option>Usuario</option></select> <select ><option>Servicio</option></select>
 				
 			</p>
 
@@ -153,7 +153,7 @@ if(hora.length()==4)
 				<div class="caja_tabla" style="width: 800px">
 					<table width="791" height="134" ; height: 192px">
 						<tr>
-							<th height="21" colspan="7" id="nue">Relación de pagos frecuentes</th>
+							<th height="21" colspan="8" id="nue">Relación de pagos frecuentes</th>
 						</tr>
 						
 						
@@ -161,6 +161,7 @@ if(hora.length()==4)
 						  <td width="25" height="52" class="td_izq_color" valign="top"><div align="center"><b>Sel
 					      </b></div>						    <b><label></label></b></td>
 						  <b>						  </b><td width="202" class="td_der_blan" valign="top"><div align="center">Usuario</div></td>
+						  <b>						  </b><td width="202" class="td_der_blan" valign="top"><div align="center">Servicio</div></td>
 						  <b>						  </b><td width="200" valign="top"><div align="center"><b>Pago Frecuente</b></div></td>
 						  <b>						  </b><td colspan="3" valign="top"><table width="223"><b>
 						    </b>
@@ -183,6 +184,7 @@ if(hora.length()==4)
 						  <td width="77" height="22">&nbsp;</td>
 						  <td width="67">&nbsp;</td>
 						  <td width="72">&nbsp;</td>
+						  <td width="72">&nbsp;</td>
 						  <td>&nbsp;</td>
 					  </tr>
 						<tr class="tr_blanco">
@@ -193,6 +195,7 @@ if(hora.length()==4)
 						  <td>&nbsp;</td>
 						  <td>&nbsp;</td>
 						  <td>&nbsp;</td>
+						  <td width="72">&nbsp;</td>
 					  </tr>
   </table>					
 
