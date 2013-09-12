@@ -1,31 +1,31 @@
 <! BBVA  ---------------------------------------------------------------------------->
-<! Operación:  PRESENTACION pfInscripcionPSTelefonia_op  ------------------------------------->
+<! Operación:  PRESENTACION pfInscripcionPSAgua_op  ------------------------------------->
 
 <! OPERACION ----------------------------------------------------------------------->
-<com.grupobbva.ce.op.pf.OPInscripcionPSTelefonia id=pfInscripcionPSTelefonia_op operationContext=OperationContext>
+<com.grupobbva.ce.op.pf.OPInscripcionPSAgua id=pfInscripcionPSAgua_op operationContext=OperationContext>
 	<refFormat name=jspFormat refId=ErrorOPJspFmt>	
-	<refFormat name=jspFormat refId=InscripcionPSTelefoniaOPJspFmt>	
-	<refFormat name=htmlRequestFormat refId=InscripcionPSTelefoniaOPHTMLFmt>
-	<refKColl refId=pfInscripcionPSTelefonia_op-data>
+	<refFormat name=jspFormat refId=InscripcionPSAguaOPJspFmt>	
+	<refFormat name=htmlRequestFormat refId=InscripcionPSAguaOPHTMLFmt>
+	<refKColl refId=pfInscripcionPSAgua_op-data>
 	
 <! --------------------------------------------------------------------------------->
 
 <! ESTADOS --------------------------------------------------------------------------->
 	<navegacionOP>	
-		<estadoOP id=0 accion=inscribir metodo=inscribir requestFmt=InscripcionPSTelefoniaOPHTMLFmt>
-		<estadoOP id=1 accion=inscribir metodo=inscribir requestFmt=InscripcionPSTelefoniaOPHTMLFmt>
-		<estadoOP id=ERROR accion=inscribir metodo=inscribir requestFmt=InscripcionPSTelefoniaOPHTMLFmt>
+		<estadoOP id=0 accion=inscribir metodo=inscribir requestFmt=InscripcionPSAguaOPHTMLFmt>
+		<estadoOP id=1 accion=inscribir metodo=inscribir requestFmt=InscripcionPSAguaOPHTMLFmt>
+		<estadoOP id=ERROR accion=inscribir metodo=inscribir requestFmt=InscripcionPSAguaOPHTMLFmt>
 	</navegacionOP>		
 	
 	<! SALIDAS --------------------------------------------------------------------------->
 	<resultadoOP>	
 		<salidaOP id=ERROR jspFmt=ErrorOPJspFmt>				
-		<salidaOP id=1 jspFmt=InscripcionPSTelefoniaOPJspFmt>
+		<salidaOP id=1 jspFmt=InscripcionPSAguaOPJspFmt>
 	</resultadoOP>	
-</com.grupobbva.ce.op.pf.OPInscripcionPSTelefonia>
+</com.grupobbva.ce.op.pf.OPInscripcionPSAgua>
 
 <! DATOS --------------------------------------------------------------------------->
-<kColl id=pfInscripcionPSTelefonia_op-data>
+<kColl id=pfInscripcionPSAgua_op-data>
 	<field id=Error>
 </kColl>
 		
@@ -39,7 +39,7 @@
 	</fJsp>
 </fmtDef>
 
-<fmtDef id=InscripcionPSTelefoniaOPJspFmt>
+<fmtDef id=InscripcionPSAguaOPJspFmt>
 	<fJsp>
 
 		<fString dataName=s_fecha_host description=fecha_host>
@@ -56,7 +56,7 @@
 </fmtDef>
 
 
-<fmtDef id=InscripcionPSTelefoniaOPHTMLFmt>
+<fmtDef id=InscripcionPSAguaOPHTMLFmt>
 	<fHTMLReq>		
 	
 

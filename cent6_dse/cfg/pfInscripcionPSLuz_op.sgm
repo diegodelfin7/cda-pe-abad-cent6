@@ -1,0 +1,67 @@
+<! BBVA  ---------------------------------------------------------------------------->
+<! Operación:  PRESENTACION pfInscripcionPSLuz_op  ------------------------------------->
+
+<! OPERACION ----------------------------------------------------------------------->
+<com.grupobbva.ce.op.pf.OPInscripcionPSLuz id=pfInscripcionPSLuz_op operationContext=OperationContext>
+	<refFormat name=jspFormat refId=ErrorOPJspFmt>	
+	<refFormat name=jspFormat refId=InscripcionPSLuzOPJspFmt>	
+	<refFormat name=htmlRequestFormat refId=InscripcionPSLuzOPHTMLFmt>
+	<refKColl refId=pfInscripcionPSLuz_op-data>
+	
+<! --------------------------------------------------------------------------------->
+
+<! ESTADOS --------------------------------------------------------------------------->
+	<navegacionOP>	
+		<estadoOP id=0 accion=inscribir metodo=inscribir requestFmt=InscripcionPSLuzOPHTMLFmt>
+		<estadoOP id=1 accion=inscribir metodo=inscribir requestFmt=InscripcionPSLuzOPHTMLFmt>
+		<estadoOP id=ERROR accion=inscribir metodo=inscribir requestFmt=InscripcionPSLuzOPHTMLFmt>
+	</navegacionOP>		
+	
+	<! SALIDAS --------------------------------------------------------------------------->
+	<resultadoOP>	
+		<salidaOP id=ERROR jspFmt=ErrorOPJspFmt>				
+		<salidaOP id=1 jspFmt=InscripcionPSLuzOPJspFmt>
+	</resultadoOP>	
+</com.grupobbva.ce.op.pf.OPInscripcionPSLuz>
+
+<! DATOS --------------------------------------------------------------------------->
+<kColl id=pfInscripcionPSLuz_op-data>
+	<field id=Error>
+</kColl>
+		
+<! FORMATOS --------------------------------------------------------------------------->
+<fmtDef id=ErrorOPJspFmt>
+	<fJsp>
+		<fString dataName=s_cod_nomconta description=usuario>
+		<fString dataName=s_fecha_host description=fecha_host>
+		<fString dataName=s_hora_host description=hora_host>
+		<fString dataName=Error description=mensaje>
+	</fJsp>
+</fmtDef>
+
+<fmtDef id=InscripcionPSLuzOPJspFmt>
+	<fJsp>
+
+		<fString dataName=s_fecha_host description=fecha_host>
+		<fString dataName=s_hora_host description=hora_host>
+
+		<fString dataName=prServicio description=servicio>
+		<fString dataName=prNumeroCuentaCargo description=numeroCuentaCargo>
+		<fString dataName=prNumeroSuministro description=numeroSuministro>
+		<fString dataName=prTitularServicio description=titularServicio>
+		<fString dataName=prImportePagado description=importePagado>
+		<fString dataName=prUsuariosAutorizan description=usuariosAutorizan>
+		
+	</fJsp>	
+</fmtDef>
+
+
+<fmtDef id=InscripcionPSLuzOPHTMLFmt>
+	<fHTMLReq>		
+	
+
+	</fHTMLReq>
+</fmtDef>	
+
+
+<! --------------------------------------------------------------------------------->

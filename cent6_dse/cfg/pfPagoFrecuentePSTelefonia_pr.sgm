@@ -1,0 +1,50 @@
+<! BBVA  ---------------------------------------------------------------------------->
+<! Operaciónn:  PROCESO  pfPagoFrecuentePSTelefonia_pr  ------------------------------------------>
+
+<! OPERACION ----------------------------------------------------------------------->
+<com.grupobbva.ce.op.pf.PrOperFrecPSTelefonia id=pfPagoFrecuentePSTelefonia_pr operationContext=OperationContext>
+	<refKColl refId=pfPagoFrecuentePSTelefonia_pr-data>
+
+<! ESTADOS --------------------------------------------------------------------------->
+	<navegacionPr>		
+		
+		<estadoPr id=0 operacion=pfInscripcionPSTelefonia_op>
+		<estadoPr id=1 operacion=pfInscripcionPSTelefonia_op>
+		
+		<estadoPr id=0 operacion=pfRealizarPSTelefonia_op>
+		<estadoPr id=1 operacion=pfRealizarPSTelefonia_op>
+		
+	</navegacionPr>		
+
+<! SALIDAS --------------------------------------------------------------------------->
+	<resultadoPr>	
+		<salidaPr id=0 operacion=pfInscripcionPSTelefonia_op estadoOP=ERROR jspFile=gn001_error>
+		<salidaPr id=1 operacion=pfInscripcionPSTelefonia_op estadoOP=1 jspFile=pf001_inscripcionPSTelefonia>	
+		<salidaPr id=1 operacion=pfInscripcionPSTelefonia_oPSTelefoniaestadoOP=ERROR jspFile=gn001_error>			
+				
+		<salidaPr id=0 operacion=pfRealizarPSTelefonia_op estadoOP=ERROR jspFile=gn001_error>		
+		<salidaPr id=1 operacion=pfRealizarPSTelefonia_op estadoOP=1 jspFile=pf002_realizaPSTelefonia>
+		<salidaPr id=1 operacion=pfRealizarPSTelefonia_op estadoOP=ERROR jspFile=gn001_error>		
+		
+		
+	</resultadoPr>	
+
+</com.grupobbva.ce.op.pf.PrOperFrecPSTelefonia>
+<! --------------------------------------------------------------------------------->
+
+<! DATOS --------------------------------------------------------------------------->
+<kColl id=pfPagoFrecuentePSTelefonia_pr-data>
+	  <field id=prServicio >
+	  <field id=prNumeroCuentaCargo >
+  	  <field id=prNombreEntidad >
+  	  <field id=prNumeroTarjeta >
+  	  
+  	  <fString dataName=prServicio description=servicio>
+		<fString dataName=prNumeroCuentaCargo description=numeroCuentaCargo>
+		<fString dataName=prNumeroSuministro description=numeroSuministro>
+		<fString dataName=prTitularServicio description=titularServicio>
+		<fString dataName=prImportePagado description=importePagado>
+		<fString dataName=prUsuariosAutorizan description=usuariosAutorizan>
+  	  
+</kColl>
+<! --------------------------------------------------------------------------------->

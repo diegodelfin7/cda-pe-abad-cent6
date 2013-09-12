@@ -1,39 +1,39 @@
 <! BBVA  ---------------------------------------------------------------------------->
-<! Operaciónn:  PROCESO  pfPagoFrecuentePSLuz_pr  ------------------------------------------>
+<! Operaciónn:  PROCESO  pfPagoFrecuentePSAgua_pr  ------------------------------------------>
 
 <! OPERACION ----------------------------------------------------------------------->
-<com.grupobbva.ce.op.pf.PrOperFrecPSLuz id=pfPagoFrecuentePSLuz_pr operationContext=OperationContext>
-	<refKColl refId=pfPagoFrecuentePSLuz_pr-data>
+<com.grupobbva.ce.op.pf.PrOperFrecPSAgua id=pfPagoFrecuentePSAgua_pr operationContext=OperationContext>
+	<refKColl refId=pfPagoFrecuentePSAgua_pr-data>
 
 <! ESTADOS --------------------------------------------------------------------------->
 	<navegacionPr>		
 		
-		<estadoPr id=0 operacion=pfInscripcionPSLuz_op>
-		<estadoPr id=1 operacion=pfInscripcionPSLuz_op>
+		<estadoPr id=0 operacion=pfInscripcionPSAgua_op>
+		<estadoPr id=1 operacion=pfInscripcionPSAgua_op>
 		
-		<estadoPr id=0 operacion=pfRealizarPSLuz_op>
-		<estadoPr id=1 operacion=pfRealizarPSLuz_op>
+		<estadoPr id=0 operacion=pfRealizarPSAgua_op>
+		<estadoPr id=1 operacion=pfRealizarPSAgua_op>
 		
 	</navegacionPr>		
 
 <! SALIDAS --------------------------------------------------------------------------->
 	<resultadoPr>	
-		<salidaPr id=0 operacion=pfInscripcionPSLuz_op estadoOP=ERROR jspFile=gn001_error>
-		<salidaPr id=1 operacion=pfInscripcionPSLuz_op estadoOP=1 jspFile=pf001_inscripcionPSLuz>	
-		<salidaPr id=1 operacion=pfInscripcionPSLuz_oPSLuzestadoOP=ERROR jspFile=gn001_error>			
+		<salidaPr id=0 operacion=pfInscripcionPSAgua_op estadoOP=ERROR jspFile=gn001_error>
+		<salidaPr id=1 operacion=pfInscripcionPSAgua_op estadoOP=1 jspFile=pf001_inscripcionPSAgua>	
+		<salidaPr id=1 operacion=pfInscripcionPSAgua_oPSAguaestadoOP=ERROR jspFile=gn001_error>			
 				
-		<salidaPr id=0 operacion=pfRealizarPSLuz_op estadoOP=ERROR jspFile=gn001_error>		
-		<salidaPr id=1 operacion=pfRealizarPSLuz_op estadoOP=1 jspFile=pf002_realizaPSLuz>
-		<salidaPr id=1 operacion=pfRealizarPSLuz_op estadoOP=ERROR jspFile=gn001_error>		
+		<salidaPr id=0 operacion=pfRealizarPSAgua_op estadoOP=ERROR jspFile=gn001_error>		
+		<salidaPr id=1 operacion=pfRealizarPSAgua_op estadoOP=1 jspFile=pf002_realizaPSAgua>
+		<salidaPr id=1 operacion=pfRealizarPSAgua_op estadoOP=ERROR jspFile=gn001_error>		
 		
 		
 	</resultadoPr>	
 
-</com.grupobbva.ce.op.pf.PrOperFrecPSLuz>
+</com.grupobbva.ce.op.pf.PrOperFrecPSAgua>
 <! --------------------------------------------------------------------------------->
 
 <! DATOS --------------------------------------------------------------------------->
-<kColl id=pfPagoFrecuentePSLuz_pr-data>
+<kColl id=pfPagoFrecuentePSAgua_pr-data>
 	  <field id=prServicio >
 	  <field id=prNumeroCuentaCargo >
   	  <field id=prNombreEntidad >

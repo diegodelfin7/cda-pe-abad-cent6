@@ -1,4 +1,4 @@
-<form action="OperacionCBTFServlet?proceso=pfPagoFrecuentePSLuz_pr&operacion=pfInscripcionPSLuz_op&accion=inscribir" name="frmInscripcion" method="post">
+<form action="OperacionCBTFServlet?proceso=pfPagoFrecuentePSAgua_pr&operacion=pfInscripcionPSAgua_op&accion=inscribir" name="frmInscripcion" method="post">
 <center>
 
 <table >

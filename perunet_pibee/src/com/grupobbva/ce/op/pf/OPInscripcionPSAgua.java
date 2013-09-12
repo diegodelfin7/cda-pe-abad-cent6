@@ -17,25 +17,25 @@ import com.ibm.dse.base.Trace;
 import java.io.IOException;
 import java.util.Enumeration;
 
-public class OPInscripcionPSTelefonia extends OperacionPresentacion
+public class OPInscripcionPSAgua extends OperacionPresentacion
 {
-  public OPInscripcionPSTelefonia()
+  public OPInscripcionPSAgua()
   {
   }
 
-  public OPInscripcionPSTelefonia(String anOperationName)
+  public OPInscripcionPSAgua(String anOperationName)
     throws IOException
   {
     super(anOperationName);
   }
 
-  public OPInscripcionPSTelefonia(String anOperationName, Context aParentContext)
+  public OPInscripcionPSAgua(String anOperationName, Context aParentContext)
     throws IOException, DSEInvalidRequestException
   {
     super(anOperationName, aParentContext);
   }
 
-  public OPInscripcionPSTelefonia(String anOperationName, String aParentContext)
+  public OPInscripcionPSAgua(String anOperationName, String aParentContext)
     throws IOException, DSEObjectNotFoundException, DSEInvalidRequestException
   {
     super(anOperationName, aParentContext);
