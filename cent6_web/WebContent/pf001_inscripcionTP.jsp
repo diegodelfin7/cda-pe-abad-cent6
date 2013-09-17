@@ -50,9 +50,18 @@ if(hora.length()==4)
                
                var cell03 = row.insertCell(3);
                var element03 = document.createElement("input");
-               element03.type = "checkbox";
+               element03.type = "button";
+               element03.value = "-";
+               element03.onclick = function(){ row.parentNode.removeChild(row);return false;};
                cell03.appendChild(element03);
      }
+
+	 
+
+  
+
+
+
 
  function agregarEmail(tableID) {
 	 
@@ -75,10 +84,19 @@ if(hora.length()==4)
                
                var cell02 = row.insertCell(2);
                var element02 = document.createElement("input");
-               element02.type = "checkbox";
+               element02.type = "button";
+               element02.value = "-";
+               element02.onclick = function(){ row.parentNode.removeChild(row);return false;};
                cell02.appendChild(element02);
      }
      
+     function resetDatosTelefono(){
+		 document.getElementById("txtTelefono").value="";
+     }
+     
+     function resetDatosEmail(){
+		document.getElementById("txtEmail").value="";
+     }
      
      function deleteTelefono(tableID) {
           try {
@@ -87,7 +105,8 @@ if(hora.length()==4)
 	           for(var i=0; i<rowCount; i++) {
 	                var row = table.rows[i];
 	                var chkbox = row.cells[3].childNodes[0];
-	                if(null != chkbox && true == chkbox.checked) {
+	               // if(null != chkbox && true == chkbox.checked) {
+	                if(null != chkbox && true == chkbox.clicked) {
 	                     table.deleteRow(i);
 	                     rowCount--;
 	                     i--;
@@ -244,17 +263,17 @@ if(hora.length()==4)
 										<tr class="tr_blanco">
 											<td class="td_izq_color" colspan="2"><input
 												type="checkbox" />Mensaje de Texto [SMS] a Teléfono Móvil<br>
-												<select name="companiaTelefonica" size="1">
+												OPERADOR <select name="companiaTelefonica" size="1">
 															<OPTION value="TELE">Movistar</OPTION>
 															<OPTION value="CLAR">Claro</OPTION>
 
 												</select>
 												
 
-													<input type="text" id="txtTelefono" value="TELEFONO" />
+													TELEFONO  <input type="text" id="txtTelefono" value="TELEFONO" />
 													
 												<button name="btnAgregar" onclick="agregarTelefono('tablaTelefonos');">+</button>
-												<button name="btnEliminar" onclick="deleteTelefono('tablaTelefonos');">-</button>
+												<button name="btnEliminar" onclick="resetDatosTelefono();">x</button>
 											</td>
 										</tr>
 										<tr class="tr_blanco">
@@ -276,7 +295,7 @@ if(hora.length()==4)
 												type="checkbox" />Mensaje de aviso a la dirección
 												electrónica<br> <input type="text" id="txtEmail" value="E-MAIL" />
 												<button name="btnAgregarEmail" onclick="agregarEmail('tablaEmails');">+</button>
-												<button name="btnEliminar" onclick="deleteEmail('tablaEmails');">-</button>
+												<button name="btnEliminar" onclick="resetDatosEmail();">x</button>
 											</td>
 
 										</tr>
