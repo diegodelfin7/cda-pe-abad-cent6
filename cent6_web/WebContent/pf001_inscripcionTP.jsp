@@ -36,6 +36,8 @@ document.cuerpo.submit();
 	 			
                var table = document.getElementById(tableID);
                var rowCount = table.rows.length;
+               
+                if(rowCount <= 8){
                var row = table.insertRow(rowCount);
                 
                var cell00 = row.insertCell(0);
@@ -59,6 +61,7 @@ document.cuerpo.submit();
                element03.value = "-";
                element03.onclick = function(){ row.parentNode.removeChild(row);return false;};
                cell03.appendChild(element03);
+               }
      }
 
 	 
@@ -73,7 +76,10 @@ document.cuerpo.submit();
 	 		   var email = document.getElementById("txtEmail").value; 	
 	 			
                var table = document.getElementById(tableID);
+               
                var rowCount = table.rows.length;
+               
+               if(rowCount <= 8){
                var row = table.insertRow(rowCount);
                 
                var cell00 = row.insertCell(0);
@@ -93,6 +99,8 @@ document.cuerpo.submit();
                element02.value = "-";
                element02.onclick = function(){ row.parentNode.removeChild(row);return false;};
                cell02.appendChild(element02);
+               
+               }
      }
      
      function resetDatosTelefono(){
