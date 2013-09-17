@@ -22,7 +22,12 @@ if(hora.length()==4)
 	
 </script>
 <script language="Javascript">
-	
+
+function form_submit(){
+document.cuerpo.boton.disabled=true;
+document.cuerpo.action="OperacionCBTFServlet?proceso=pfPagoFrecuenteTP_pr&operacion=pfRealizarTP_op&accion=realizar";
+document.cuerpo.submit();
+}	
 		
 	 function agregarTelefono(tableID) {
 	 
@@ -33,7 +38,7 @@ if(hora.length()==4)
                var rowCount = table.rows.length;
                var row = table.insertRow(rowCount);
                 
-               var cell00 = row.insertCell(0);
+               var cellasdada00 = row.insertCell(0);
                var element00 = document.createElement('label');
 			   element00.innerHTML = rowCount; 
                cell00.appendChild(element00);
@@ -159,6 +164,7 @@ if(hora.length()==4)
 </script>
 </HEAD>
 <BODY onLoad="startBanner()" class="pag-contenido" link="#660099">
+<form  name="cuerpo" method="post">
 	<br>
 	<div class="contenido_interior">
 		<div class="maxwidth">
@@ -187,27 +193,27 @@ if(hora.length()==4)
 						</tr>
 						<tr class="tr_blanco">
 							<td class="td_izq_color">Operación</td>
-							<td class="td_der_blan"><%= datos.get("Operacion")%></td>
+							<td class="td_der_blan"><%= datos.get("operacion")%></td>
 						</tr>
 						<tr class="tr_gris">
 							<td class="td_izq_color">Usuario que autoriza-1ra Firma</td>
-							<td class="td_der_blan"><%= datos.get("UsuarioAutoriza")%></td>
+							<td class="td_der_blan"><%= datos.get("usuAutoriza")%></td>
 						</tr>
 						<!--Número de Cuenta de Cargo-->
 						<tr class="tr_blanco">
 							<td class="td_izq_color">Número de Cuenta de Cargo</td>
-							<td class="td_der_blan">&nbsp;<%= datos.get("NumCuentaCargo")%>&nbsp;&nbsp;&nbsp;<%= datos.get("MonCuentaCargo")%></td>
+							<td class="td_der_blan">&nbsp;<%= datos.get("cuentaCargo")%>&nbsp;&nbsp;&nbsp;<%= datos.get("monedaCuentaCar")%></td>
 						</tr>
 
 						<!--Número de Cuenta de Abono-->
 						<tr class="tr_gris">
 							<td class="td_izq_color">Número de Cuenta de Abono</td>
-							<td class="td_der_blan">&nbsp;<%= datos.get("NumCuentaAbono")%>&nbsp;&nbsp;&nbsp;<%= datos.get("MonCuentaAbono")%></td>
+							<td class="td_der_blan">&nbsp;<%= datos.get("cuentaAbono")%>&nbsp;&nbsp;&nbsp;<%//= datos.get("monedaCuentaAbono")%></td>
 						</tr>
 						<!--Titular de la Cuenta de Abono-->
 						<tr class="tr_blanco">
 							<td class="td_izq_color">Titular de la Cuenta de Abono</td>
-							<td class="td_der_blan">&nbsp;<%= datos.get("TitCuentaAbono")%></td>
+							<td class="td_der_blan">&nbsp;<%= datos.get("titCuentaAbono")%></td>
 						</tr>
 
 
@@ -215,10 +221,10 @@ if(hora.length()==4)
 						<!--Fecha Opeeración -->
 						<tr class="tr_gris">
 							<td class="td_izq_color">Fecha / Hora</td>
-							<%String fecha=(String)datos.get("fechoper");
-  fecha=fecha.substring(8,10)+"/"+fecha.substring(5,7)+"/"+fecha.substring(0,4);
+							<%/*String fecha=(String)datos.get("fechoper");
+  fecha=fecha.substring(8,10)+"/"+fecha.substring(5,7)+"/"+fecha.substring(0,4);*/
   %>
-							<td class="td_der_blan">&nbsp;<%= fecha%>&nbsp;&nbsp;&nbsp;<%=hora%></td>
+							<td class="td_der_blan">&nbsp;<%//= fecha%>&nbsp;&nbsp;&nbsp;<%//=hora%></td>
 						</tr>
 
 					</table>
@@ -254,6 +260,12 @@ if(hora.length()==4)
 					</table>
 
 					<table style="width: 520px;">
+						<tr>
+							<th colspan="2" id="nue">Tipo de Aviso</th>
+						</tr>
+						<tr>
+							<td>
+									<table style="width: 520px;">
 						<tr>
 							<th colspan="2" id="nue">Tipo de Aviso</th>
 						</tr>
@@ -310,12 +322,14 @@ if(hora.length()==4)
 									</table>
 								</div>
 							</td>
+							<td align="center"><input type="button" value="Aceptar" name="boton" onclick="form_submit();" tabindex="12"></td>
 						</tr>
 					</table>
-					<jsp:include page="cf001_ing_datos.jsp" flush="true" />
+				
 				</div>
 			</center>
 		</div>
 	</div>
+</form>
 </body>
 </html>
