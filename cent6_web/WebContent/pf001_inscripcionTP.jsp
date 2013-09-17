@@ -23,11 +23,11 @@ if(hora.length()==4)
 </script>
 <script language="Javascript">
 
-function form_submit(){
-document.cuerpo.boton.disabled=true;
-document.cuerpo.action="OperacionCBTFServlet?proceso=pfPagoFrecuenteTP_pr&operacion=pfRealizarTP_op&accion=realizar";
-document.cuerpo.submit();
-}	
+		function form_submit(){
+			document.cuerpo.boton.disabled=true;
+			document.cuerpo.action="OperacionCBTFServlet?proceso=pfPagoFrecuenteTP_pr&operacion=pfRealizarTP_op&accion=realizar";
+			document.cuerpo.submit();
+		}	
 		
 	 function agregarTelefono(tableID) {
 	 
@@ -111,6 +111,15 @@ document.cuerpo.submit();
 		document.getElementById("txtEmail").value="";
      }
      
+     function llenarCmbDias(){
+     	//alert("HOLA");
+     	var select = document.getElementsByTagName('select')[0];
+		//select.options.length = 0; // clear out existing items
+		for(var i=0; i < 32; i++) {
+	    	select.options.add(new Option(""+i, i));
+		}
+     }
+     
      function deleteTelefono(tableID) {
           try {
 	           var table = document.getElementById(tableID);
@@ -171,7 +180,7 @@ document.cuerpo.submit();
 	document.onmousedown = click;
 </script>
 </HEAD>
-<BODY onLoad="startBanner()" class="pag-contenido" link="#660099">
+<BODY onLoad="startBanner();" class="pag-contenido" link="#660099">
 <form  name="cuerpo" method="post">
 	<br>
 	<div class="contenido_interior">
@@ -256,21 +265,52 @@ document.cuerpo.submit();
 						<tr class="tr_blanco">
 							<td class="td_izq_color">Deseo que me envien aviso
 								recordatorio&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio"
-								value="SI" id="rdRecordar" />SI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-								type="radio" value="NO" id="rdRecordar" />NO
+								value="SI" name="rdRecordar" id="rdRecordar" checked="checked"/>SI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+								type="radio" value="NO" name="rdRecordar" id="rdRecordar" />NO
 							</td>
 						</tr>
 						<tr class="tr_blanco">
-							<td class="td_izq_color">Los días <select><option>1</option></select>
+							<td class="td_izq_color">Los días 
+							<select id="cmbDias" name="cmbDias" >
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+								<option>13</option>
+								<option>14</option>
+								<option>15</option>
+								<option>16</option>
+								<option>17</option>
+								<option>18</option>
+								<option>19</option>
+								<option>20</option>
+								<option>21</option>
+								<option>22</option>
+								<option>23</option>
+								<option>24</option>
+								<option>25</option>
+								<option>26</option>
+								<option>27</option>
+								<option>28</option>
+								<option>29</option>
+								<option>30</option>
+								<option>31</option>
+							</select>
 								de cada mes
 							</td>
 						</tr>
 					</table>
 
 					<table style="width: 520px;">
-						<tr>
-							<th colspan="2" id="nue">Tipo de Aviso</th>
-						</tr>
+						
 						<tr>
 							<td>
 									<table style="width: 520px;">
@@ -280,22 +320,22 @@ document.cuerpo.submit();
 						<tr>
 							<td>
 									<table style="width: 520px;"  >
-										<tr class="tr_blanco">
-											<td class="td_izq_color" colspan="2"><input
-												type="checkbox" />Mensaje de Texto [SMS] a Teléfono Móvil<br>
-												OPERADOR <select name="companiaTelefonica" size="1">
+									
+										<tr>
+											<td>
+													<input type="checkbox" />Mensaje de Texto [SMS] a Teléfono Móvil
+											</td>
+										</tr>
+										<tr>
+											<td><table border="1"><tr><td style="width: 127px; ">OPERADOR</td><td style="width: 129px; "><select name="companiaTelefonica" size="1">
 															<OPTION value="TELE">Movistar</OPTION>
 															<OPTION value="CLAR">Claro</OPTION>
 
-												</select>
-												
-
-													TELEFONO  <input type="text" id="txtTelefono" value="TELEFONO" />
-													
-												<button name="btnAgregar" onclick="agregarTelefono('tablaTelefonos');">+</button>
-												<button name="btnEliminar" onclick="resetDatosTelefono();">x</button>
+												</select></td><td style="width: 116px; ">TELEFONO</td><td style="width: 113px; "><input type="text" id="txtTelefono" value="TELEFONO" /></td><td><button name="btnAgregar" onclick="agregarTelefono('tablaTelefonos');">+</button></td><td><button name="btnEliminar" onclick="resetDatosTelefono();">x</button></td </table>
+										
 											</td>
 										</tr>
+										
 										<tr class="tr_blanco">
 											<td class="td_izq_color" colspan="2">
 												<table id="tablaTelefonos" border="1" style="width: 520px;" >
