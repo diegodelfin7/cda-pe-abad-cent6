@@ -38,7 +38,7 @@ document.cuerpo.submit();
                var rowCount = table.rows.length;
                var row = table.insertRow(rowCount);
                 
-               var cellasdada00 = row.insertCell(0);
+               var cell00 = row.insertCell(0);
                var element00 = document.createElement('label');
 			   element00.innerHTML = rowCount; 
                cell00.appendChild(element00);
