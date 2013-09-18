@@ -5,9 +5,9 @@
 <%@ include file="includecbtf.jsp"%>
 
 
-<% String hora = (String)traspaso.get("hora");
-if(hora.length()==4)
-	hora = hora.substring(0,2) + ":" + hora.substring(2,4);
+<% //String hora = (String)traspaso.get("hora");
+//if(hora.length()==4)
+	//hora = hora.substring(0,2) + ":" + hora.substring(2,4);
 %>
 <link rel='stylesheet' media='screen' href='../css/menu.css'
 	type='text/css' />
@@ -273,7 +273,7 @@ if(hora.length()==4)
 	document.onmousedown = click;
 </script>
 </HEAD>
-<BODY onLoad="startBanner();" class="pag-contenido" link="#660099">
+<BODY onLoad="startBanner()" class="pag-contenido" link="#660099">
 <form  name="cuerpo" method="post">
 	<br>
 	<div class="contenido_interior">
