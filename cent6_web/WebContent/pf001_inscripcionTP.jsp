@@ -471,8 +471,8 @@ if(hora.length()==4)
 			</center>
 		</div>
 	</div>
-	<input type="text"  id="hdTelefonos" name="hdTelefonos" />
-	<input type="text"  id="hdEmails" name="hdEmails" />
+	<input type="hidden"  id="hdTelefonos" name="hdTelefonos" />
+	<input type="hidden"  id="hdEmails" name="hdEmails" />
 </form>
 </body>
 </html>
