@@ -22,6 +22,9 @@ if(hora.length()==4)
 	
 </script>
 <script language="Javascript">
+		
+		var telefonos = "";
+		var emails = "";
 
 		function form_submit(){
 			document.cuerpo.boton.disabled=true;
@@ -33,34 +36,38 @@ if(hora.length()==4)
 	 
 	 		   var companiaTelefonica = document.getElementById("companiaTelefonica").value;	
 	 		   var numeroTelefono = document.getElementById("txtTelefono").value; 	
+	 		   
+	 			telefonos = telefonos+"|"+numeroTelefono;
+	 			document.getElementById("hdTelefonos").value = telefonos;
 	 			
                var table = document.getElementById(tableID);
                var rowCount = table.rows.length;
                
                 if(rowCount <= 8){
-               var row = table.insertRow(rowCount);
                 
-               var cell00 = row.insertCell(0);
-               var element00 = document.createElement('label');
-			   element00.innerHTML = rowCount; 
-               cell00.appendChild(element00);
-               
-               var cell01 = row.insertCell(1);
-               var element01 = document.createElement("label");
-               element01.innerHTML = companiaTelefonica;
-               cell01.appendChild(element01);
-               
-               var cell02 = row.insertCell(2);
-               var element02 = document.createElement("label");
-               element02.innerHTML = numeroTelefono;
-               cell02.appendChild(element02);
-               
-               var cell03 = row.insertCell(3);
-               var element03 = document.createElement("input");
-               element03.type = "button";
-               element03.value = "-";
-               element03.onclick = function(){ row.parentNode.removeChild(row);return false;};
-               cell03.appendChild(element03);
+	               var row = table.insertRow(rowCount);
+	                
+	               var cell00 = row.insertCell(0);
+	               var element00 = document.createElement('label');
+				   element00.innerHTML = rowCount; 
+	               cell00.appendChild(element00);
+	               
+	               var cell01 = row.insertCell(1);
+	               var element01 = document.createElement("label");
+	               element01.innerHTML = companiaTelefonica;
+	               cell01.appendChild(element01);
+	               
+	               var cell02 = row.insertCell(2);
+	               var element02 = document.createElement("label");
+	               element02.innerHTML = numeroTelefono;
+	               cell02.appendChild(element02);
+	               
+	               var cell03 = row.insertCell(3);
+	               var element03 = document.createElement("input");
+	               element03.type = "button";
+	               element03.value = "-";
+	               element03.onclick = function(){ row.parentNode.removeChild(row);alert("numeroTelefono="+numeroTelefono);return false;};
+	               cell03.appendChild(element03);
                }
      }
 
@@ -78,6 +85,10 @@ if(hora.length()==4)
                var table = document.getElementById(tableID);
                
                var rowCount = table.rows.length;
+               
+               var email = document.getElementById("txtEmail").value; 
+               emails = emails+"|"+email;
+	 			document.getElementById("hdEmails").value = emails;
                
                if(rowCount <= 8){
                var row = table.insertRow(rowCount);
@@ -157,6 +168,26 @@ if(hora.length()==4)
           }
      }
      
+	
+	function fObtenerTelefonos(tableID){
+		try {
+	           var table = document.getElementById(tableID);
+	           var rowCount = table.rows.length;
+	           for(var i=0; i<rowCount; i++) {
+	                var row = table.rows[i];
+	                var chkbox = row.cells[2].childNodes[0];
+	                if(null != chkbox && true == chkbox.checked) {
+	                     table.deleteRow(i);
+	                     rowCount--;
+	                     i--;
+	                }
+	           }
+          }catch(e) {
+               alert(e);
+          }
+	
+	}
+	
 	
 
 	function click(e) {
@@ -378,6 +409,8 @@ if(hora.length()==4)
 			</center>
 		</div>
 	</div>
+	<input type="hidden"  id="hdTelefonos" name="hdTelefonos" />
+	<input type="hidden"  id="hdEmails" name="hdEmails" />
 </form>
 </body>
 </html>
