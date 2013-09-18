@@ -34,10 +34,23 @@ if(hora.length()==4)
 		
 	 function agregarTelefono(tableID) {
 	 
-	 		   var companiaTelefonica = document.getElementById("companiaTelefonica").value;	
-	 		   var numeroTelefono = document.getElementById("txtTelefono").value; 	
+	 		   var companiaTelefonica = document.getElementById("companiaTelefonica").value;
+	 		    var numeroTelefono = document.getElementById("txtTelefono").value; 		
 	 		   
-	 			telefonos = telefonos+"|"+numeroTelefono;
+	 		   if(companiaTelefonica=="TELE"){
+	 		      numeroTelefono = "M "+numeroTelefono;
+	 		   }
+	 		   if(companiaTelefonica=="CLAR"){
+	 		   	  numeroTelefono = "C "+numeroTelefono;	
+	 		   }
+	 		   
+	 		   
+				if(telefonos==""){
+					telefonos = numeroTelefono;
+				}else{
+					telefonos = telefonos+"|"+numeroTelefono;
+				}		 		   
+	 			
 	 			document.getElementById("hdTelefonos").value = telefonos;
 	 			
                var table = document.getElementById(tableID);
@@ -66,7 +79,7 @@ if(hora.length()==4)
 	               var element03 = document.createElement("input");
 	               element03.type = "button";
 	               element03.value = "-";
-	               element03.onclick = function(){ row.parentNode.removeChild(row);alert("numeroTelefono="+numeroTelefono);return false;};
+	               element03.onclick = function(){ row.parentNode.removeChild(row);fCortarCadenaTelefono(numeroTelefono);return false;};
 	               cell03.appendChild(element03);
                }
      }
@@ -86,8 +99,16 @@ if(hora.length()==4)
                
                var rowCount = table.rows.length;
                
+               		
+               
                var email = document.getElementById("txtEmail").value; 
-               emails = emails+"|"+email;
+               
+               if(emails==""){
+					emails = email;
+				}else{
+					emails = emails+"|"+email;
+				}	
+               
 	 			document.getElementById("hdEmails").value = emails;
                
                if(rowCount <= 8){
@@ -108,10 +129,51 @@ if(hora.length()==4)
                var element02 = document.createElement("input");
                element02.type = "button";
                element02.value = "-";
-               element02.onclick = function(){ row.parentNode.removeChild(row);return false;};
+               element02.onclick = function(){ row.parentNode.removeChild(row);fCortarCadenaEmail(email);return false;};
                cell02.appendChild(element02);
                
                }
+     }
+     
+     
+     function fCortarCadenaTelefono(cadenaCortar){
+		var stringArray = telefonos.split("|");
+		//Resetemos la variagle global
+		telefonos = "";
+		for(i=0;i<stringArray.length;i++){
+			if(stringArray[i]==cadenaCortar){
+			
+			}else{
+				if(telefonos==""){
+					telefonos = stringArray[i];
+				}else{
+					telefonos = telefonos+"|"+stringArray[i];
+				}
+			}
+		
+		}
+		
+		document.getElementById("hdTelefonos").value = telefonos;
+     }
+     
+       function fCortarCadenaEmail(cadenaCortar){
+			var stringArray = emails.split("|");
+			//Resetemos la variagle global
+			emails = "";
+			for(i=0;i<stringArray.length;i++){
+				if(stringArray[i]==cadenaCortar){
+				
+				}else{
+					if(emails==""){
+						emails = stringArray[i];
+					}else{
+						emails = emails+"|"+stringArray[i];
+					}
+				}
+			
+			}
+		
+			document.getElementById("hdEmails").value = emails;
      }
      
      function resetDatosTelefono(){
@@ -409,8 +471,8 @@ if(hora.length()==4)
 			</center>
 		</div>
 	</div>
-	<input type="hidden"  id="hdTelefonos" name="hdTelefonos" />
-	<input type="hidden"  id="hdEmails" name="hdEmails" />
+	<input type="text"  id="hdTelefonos" name="hdTelefonos" />
+	<input type="text"  id="hdEmails" name="hdEmails" />
 </form>
 </body>
 </html>
