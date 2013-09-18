@@ -72,7 +72,7 @@ if(hora.length()==4)
 	               
 	               var cell02 = row.insertCell(2);
 	               var element02 = document.createElement("label");
-	               element02.innerHTML = numeroTelefono;
+	               element02.innerHTML = document.getElementById("txtTelefono").value;
 	               cell02.appendChild(element02);
 	               
 	               var cell03 = row.insertCell(3);
@@ -424,7 +424,7 @@ if(hora.length()==4)
 															<OPTION value="TELE">Movistar</OPTION>
 															<OPTION value="CLAR">Claro</OPTION>
 
-												</select></td><td style="width: 116px; ">TELEFONO</td><td style="width: 113px; "><input type="text" id="txtTelefono" value="TELEFONO" /></td><td><button name="btnAgregar" onclick="agregarTelefono('tablaTelefonos');">+</button></td><td><button name="btnEliminar" onclick="resetDatosTelefono();">x</button></td </table>
+												</select></td><td style="width: 116px; ">TELEFONO</td><td style="width: 113px; "><input type="text" id="txtTelefono" value="TELEFONO" /></td><td><button name="btnAgregar" onclick="agregarTelefono('tablaTelefonos');">+</button></td><td><button name="btnEliminar" onclick="resetDatosTelefono();">x</button></td> </table>
 										
 											</td>
 										</tr>
