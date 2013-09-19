@@ -296,7 +296,7 @@
 	  <tr>
 	    <td width="721" height="181"><table width="618">
 	      <tr>
-	        <th colspan="2" id="nue">Datos de la operación</th>
+	        <th align="left" colspan="2" id="nue">Inscripción Operación Frecuente</th>
 	        </tr>
 	      <tr class="tr_blanco">
 	        <td width="304" class="td_izq_color">Operación</td>
@@ -325,13 +325,11 @@
 	      <!--Fecha Opeeración -->
 	      <tr class="tr_gris">
 	        <td class="td_izq_color">Fecha / Hora</td>
-	        <%/*String fecha=(String)datos.get("fechoper");
-  fecha=fecha.substring(8,10)+"/"+fecha.substring(5,7)+"/"+fecha.substring(0,4);*/
-  %>
+	 
 	        <td class="td_der_blan">&nbsp;
-	          <%//= fecha%>
+	          <%= datos.get("fecha_host")%>
 	          &nbsp;&nbsp;&nbsp;
-	          <%//=hora%></td>
+	          <%=datos.get("hora_host")%></td>
 	        </tr>
 	      </table></td>
 	    </tr>
@@ -341,7 +339,7 @@
 	  <tr>
 	    <td height="80"><table width="622">
 	      <tr>
-	        <th colspan="2" id="nue2">Alias Asociado</th>
+	        <th align="left" colspan="2" id="nue2">Alias Asociado</th>
 	        </tr>
 	      <tr class="tr_blanco">
 	        <td class="td_izq_color" colspan="2">Descripción para
@@ -360,7 +358,7 @@
 	  <tr>
 	    <td><table width="625">
 	      <tr>
-	        <th colspan="2">Aviso Recordatorio</th>
+	        <th align="left" colspan="2">Aviso Recordatorio</th>
 	        </tr>
 	      <tr class="tr_blanco">
 	        <td class="td_izq_color">Deseo que me envien aviso
@@ -421,7 +419,7 @@
 	  <tr>
 	    <td><table width="701" border="0">
 	      <tr>
-	        <th width="691" colspan="2">Tipo de Aviso</th>
+	        <th align="left" width="691" colspan="2">Tipo de Aviso</th>
 	        </tr>
 	      <tr>
 	        <td height="23">&nbsp;</td>
