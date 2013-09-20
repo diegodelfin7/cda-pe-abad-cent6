@@ -1,21 +1,14 @@
 package com.grupobbva.ce.op.pf;
 
-import com.grupobbva.bc.per.autenticacion.pau.IdentificacionOperativaPAU;
-import com.grupobbva.bc.per.constantes.ConstantesBI;
 import com.grupobbva.bc.per.operacion.ControlErrores;
 import com.grupobbva.ii.sf.base.BbvaException;
-import com.grupobbva.ii.sf.operacion.OperacionMulticanal;
 import com.grupobbva.ii.sf.operacion.OperacionPresentacion;
 import com.ibm.dse.base.Context;
 import com.ibm.dse.base.DSEInvalidRequestException;
-import com.ibm.dse.base.DSEObjectNotFoundException;
-import com.ibm.dse.base.DataElement;
-import com.ibm.dse.base.Externalizer;
-import com.ibm.dse.base.IndexedCollection;
-import com.ibm.dse.base.KeyedCollection;
+import com.ibm.dse.base.DSEObjectNotFoundException; 
+import com.ibm.dse.base.DSEOperation;
 import com.ibm.dse.base.Trace;
 import java.io.IOException;
-import java.util.Enumeration;
 
 public class OPInscripcionTP extends OperacionPresentacion
 {
@@ -41,12 +34,11 @@ public class OPInscripcionTP extends OperacionPresentacion
     super(anOperationName, aParentContext);
   }
 
-  
-
-  public void inscribir() throws BbvaException
+  public void inscribir()
+    throws BbvaException
   {
-    try {
-
+    try
+    {
       setValueAt("prOperacion", getValueAt("Operacion").toString());
       setValueAt("prUsuAutoriza", getValueAt("UsuarioAutoriza").toString());
       setValueAt("prCuentaCargo", getValueAt("NumCuentaCargo").toString());
@@ -54,15 +46,15 @@ public class OPInscripcionTP extends OperacionPresentacion
       setValueAt("prCuentaAbono", getValueAt("NumCuentaAbono").toString());
       setValueAt("prMonedaCuentaAbono", getValueAt("MonCuentaAbono").toString());
       setValueAt("prTitCuentaAbono", getValueAt("TitCuentaAbono").toString());
-      
+      setValueAt("prFecha", getValueAt("s_fecha_host").toString());
+      setValueAt("prHora", getValueAt("s_hora_host").toString());
       setValueAt("s_clickeo", "N");
       setEstado("1");
     }
     catch (Exception e)
     {
       Trace.trace(64, "", "Error en inscribir() de " + getName() + " " + e.getMessage());
-      ControlErrores localControlErrores = new ControlErrores(this, e);
+      new ControlErrores(this, e);
     }
   }
-
 }
