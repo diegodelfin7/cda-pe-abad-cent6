@@ -1,21 +1,14 @@
 package com.grupobbva.ce.op.pf;
 
-import com.grupobbva.bc.per.autenticacion.pau.IdentificacionOperativaPAU;
-import com.grupobbva.bc.per.constantes.ConstantesBI;
 import com.grupobbva.bc.per.operacion.ControlErrores;
 import com.grupobbva.ii.sf.base.BbvaException;
-import com.grupobbva.ii.sf.operacion.OperacionMulticanal;
 import com.grupobbva.ii.sf.operacion.OperacionPresentacion;
 import com.ibm.dse.base.Context;
 import com.ibm.dse.base.DSEInvalidRequestException;
-import com.ibm.dse.base.DSEObjectNotFoundException;
-import com.ibm.dse.base.DataElement;
-import com.ibm.dse.base.Externalizer;
-import com.ibm.dse.base.IndexedCollection;
-import com.ibm.dse.base.KeyedCollection;
+import com.ibm.dse.base.DSEObjectNotFoundException; 
+import com.ibm.dse.base.DSEOperation;
 import com.ibm.dse.base.Trace;
 import java.io.IOException;
-import java.util.Enumeration;
 
 public class OPInscripcionFMSuscrip extends OperacionPresentacion
 {
@@ -41,32 +34,30 @@ public class OPInscripcionFMSuscrip extends OperacionPresentacion
     super(anOperationName, aParentContext);
   }
 
-  
-
-  public void inscribir() throws BbvaException
+  public void inscribir()
+    throws BbvaException
   {
-    try {
-
-      setValueAt("prOperacion", getValueAt("operacion").toString());
-      setValueAt("prNumeroCuentaCargo", getValueAt("numeroCuentaCargo").toString());
-      setValueAt("prMonedaCuentaCargo", getValueAt("monedaCuentaCargo").toString());
-      setValueAt("prNumeroFondosMutuos", getValueAt("numeroFondosMutuos").toString());
-      setValueAt("prNumeroCuentaAbono", getValueAt("numeroCuentaAbono").toString());
-      setValueAt("prTipoFondo", getValueAt("tipoFondo").toString());
-      setValueAt("prModalidad", getValueAt("modalidad").toString());
-      setValueAt("prCantidad", getValueAt("cantidad").toString());
-      setValueAt("prUsuarioAutoriza", getValueAt("usuarioAutoriza").toString());
+    try
+    {
+      setValueAt("prOperacion", getValueAt("Operacion").toString());
+      setValueAt("prNumeroCuentaCargo", getValueAt("NumCuentaCargo").toString());
+      setValueAt("prMonedaCuentaCargo", getValueAt("MonCuentaCargo").toString());
+      setValueAt("prNumeroFondosMutuos", getValueAt("NumeroFondosMutuos").toString());
+      setValueAt("prNumeroCuentaAbono", getValueAt("NumCuentaAbono").toString());
+      setValueAt("prTipoFondo", getValueAt("TipoFondo").toString());
+      setValueAt("prModalidad", getValueAt("Modalidad").toString());
+      setValueAt("prCantidad", getValueAt("Cantidad").toString());
+      setValueAt("prUsuarioAutoriza", getValueAt("UsuarioAutoriza").toString());
       
-      
-      
+      setValueAt("prFecha", getValueAt("s_fecha_host").toString());
+      setValueAt("prHora", getValueAt("s_hora_host").toString());
       setValueAt("s_clickeo", "N");
       setEstado("1");
     }
     catch (Exception e)
     {
       Trace.trace(64, "", "Error en inscribir() de " + getName() + " " + e.getMessage());
-      ControlErrores localControlErrores = new ControlErrores(this, e);
+      new ControlErrores(this, e);
     }
   }
-
 }
