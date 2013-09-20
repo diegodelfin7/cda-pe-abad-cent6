@@ -27,12 +27,22 @@
 <! DATOS --------------------------------------------------------------------------->
 <kColl id=pfInscripcionFMSuscrip_op-data>
 	<field id=Error>
+	<field id=Servicio>
+	<field id=Operacion>
+	<field id=UsuarioAutoriza>
+	<field id=NumCuentaCargo>
+	<field id=MonCuentaCargo>
+	<field id=NumCuentaAbono>
+	<field id=MonCuentaAbono>
+	<field id=TitCuentaAbono>
 </kColl>
 		
 <! FORMATOS --------------------------------------------------------------------------->
 <fmtDef id=ErrorOPJspFmt>
 	<fJsp>
-		<fString dataName=s_cod_nomconta description=usuario>
+		<fString dataName=s_cod_nomemp description=empresa><nullCheck>
+		<fString dataName=s_cod_nomrep description=usuario><nullCheck>
+		
 		<fString dataName=s_fecha_host description=fecha_host>
 		<fString dataName=s_hora_host description=hora_host>
 		<fString dataName=Error description=mensaje>
@@ -43,6 +53,10 @@
 	<fJsp>
 		<fString dataName=s_fecha_host description=fecha_host>
 		<fString dataName=s_hora_host description=hora_host>
+		
+		<fString dataName=s_cod_nomemp description=empresa><nullCheck>
+		<fString dataName=s_cod_nomrep description=usuario><nullCheck>
+		
 		<fString dataName=prOperacion description=operacion>
 		<fString dataName=prNumeroCuentaCargo description=numeroCuentaCargo>
 		<fString dataName=prMonedaCuentaCargo description=monedaCuentaCargo>
@@ -58,8 +72,13 @@
 
 <fmtDef id=InscripcionFMSuscripOPHTMLFmt>
 	<fHTMLReq>		
-	
-
+		<fString dataName=Operacion>
+		<fString dataName=UsuarioAutoriza>
+		<fString dataName=NumCuentaCargo>
+		<fString dataName=MonCuentaCargo>
+		<fString dataName=NumCuentaAbono>
+		<fString dataName=MonCuentaAbono>		
+		<fString dataName=TitCuentaAbono>
 	</fHTMLReq>
 </fmtDef>	
 

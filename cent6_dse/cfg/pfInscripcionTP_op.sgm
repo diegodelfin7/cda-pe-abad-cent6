@@ -27,12 +27,21 @@
 <! DATOS --------------------------------------------------------------------------->
 <kColl id=pfInscripcionTP_op-data>
 	<field id=Error>
+	<field id=Servicio>
+	<field id=Operacion>
+	<field id=UsuarioAutoriza>
+	<field id=NumCuentaCargo>
+	<field id=MonCuentaCargo>
+	<field id=NumCuentaAbono>
+	<field id=MonCuentaAbono>
+	<field id=TitCuentaAbono>
 </kColl>
 		
 <! FORMATOS --------------------------------------------------------------------------->
 <fmtDef id=ErrorOPJspFmt>
 	<fJsp>
-		<fString dataName=s_cod_nomconta description=usuario>
+		<fString dataName=s_cod_nomemp description=empresa><nullCheck>
+		<fString dataName=s_cod_nomrep description=usuario><nullCheck>
 		<fString dataName=s_fecha_host description=fecha_host>
 		<fString dataName=s_hora_host description=hora_host>
 		<fString dataName=Error description=mensaje>
@@ -44,12 +53,16 @@
 
 		<fString dataName=s_fecha_host description=fecha_host>
 		<fString dataName=s_hora_host description=hora_host>
-
+		
+		<fString dataName=s_cod_nomemp description=empresa><nullCheck>
+		<fString dataName=s_cod_nomrep description=usuario><nullCheck>
+		
+		<fString dataName=prOperacion description=operacion>
 		<fString dataName=prUsuAutoriza description=usuAutoriza>
 		<fString dataName=prCuentaCargo description=cuentaCargo>
-		<fString dataName=prMonedaCuentaCar description=monedaCuentaCar>
+		<fString dataName=prMonedaCuentaCargo description=monedaCuentaCar>
 		<fString dataName=prCuentaAbono description=cuentaAbono>
-		<fString dataName=prMonedaCuentaAbo description=monedaCuentaAbono>
+		<fString dataName=prMonedaCuentaAbono description=monedaCuentaAbono>
 		<fString dataName=prTitCuentaAbono description=titCuentaAbono>
 							               
 	</fJsp>	
@@ -58,7 +71,17 @@
 
 <fmtDef id=InscripcionTPOPHTMLFmt>
 	<fHTMLReq>		
-	
+	<fString dataName=Servicio>
+		<fString dataName=Operacion>
+		<fString dataName=UsuarioAutoriza>
+		<fString dataName=NumCuentaCargo>
+		
+		<fString dataName=MonCuentaCargo>
+		<fString dataName=NumCuentaAbono>
+		<fString dataName=MonCuentaAbono>
+				
+		<fString dataName=TitCuentaAbono>
+		
 
 	</fHTMLReq>
 </fmtDef>	

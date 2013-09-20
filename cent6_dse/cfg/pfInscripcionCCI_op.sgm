@@ -2,7 +2,7 @@
 <! Operación:  PRESENTACION pfInscripcionCCI_op  ------------------------------------->
 
 <! OPERACION ----------------------------------------------------------------------->
-<com.grupobbva.ce.op.pf.OPInscripcionCCI id=pfInscripcionCCI_op operationContext=OperationContext>
+<com.grupobbva.ce.op.pf.OCCInscripcionCCI id=pfInscripcionCCI_op operationContext=OperationContext>
 	<refFormat name=jspFormat refId=ErrorOPJspFmt>	
 	<refFormat name=jspFormat refId=InscripcionCCIOPJspFmt>	
 	<refFormat name=htmlRequestFormat refId=InscripcionCCIOPHTMLFmt>
@@ -27,12 +27,21 @@
 <! DATOS --------------------------------------------------------------------------->
 <kColl id=pfInscripcionCCI_op-data>
 	<field id=Error>
+	<field id=Servicio>
+	<field id=Operacion>
+	<field id=UsuarioAutoriza>
+	<field id=NumCuentaCargo>
+	<field id=MonCuentaCargo>
+	<field id=NumCuentaAbono>
+	<field id=MonCuentaAbono>
+	<field id=TitCuentaAbono>
 </kColl>
 		
 <! FORMATOS --------------------------------------------------------------------------->
 <fmtDef id=ErrorOPJspFmt>
 	<fJsp>
-		<fString dataName=s_cod_nomconta description=usuario>
+		<fString dataName=s_cod_nomemp description=empresa><nullCheck>
+		<fString dataName=s_cod_nomrep description=usuario><nullCheck>
 		<fString dataName=s_fecha_host description=fecha_host>
 		<fString dataName=s_hora_host description=hora_host>
 		<fString dataName=Error description=mensaje>
@@ -44,6 +53,9 @@
 
 		<fString dataName=s_fecha_host description=fecha_host>
 		<fString dataName=s_hora_host description=hora_host>
+		
+		<fString dataName=s_cod_nomemp description=empresa><nullCheck>
+		<fString dataName=s_cod_nomrep description=usuario><nullCheck>
 
 		<fString dataName=prUsuarioAutoriza description=usuarioAutoriza>
 		<fString dataName=prNumeroCuentaCargo description=numeroCuentaCargo>
@@ -60,8 +72,13 @@
 
 <fmtDef id=InscripcionCCIOPHTMLFmt>
 	<fHTMLReq>		
-	
-
+	<fString dataName=Operacion>
+	<fString dataName=UsuarioAutoriza>
+	<fString dataName=NumCuentaCargo>	
+	<fString dataName=MonCuentaCargo>
+	<fString dataName=NumCuentaAbono>
+	<fString dataName=MonCuentaAbono>
+	<fString dataName=TitCuentaAbono>
 	</fHTMLReq>
 </fmtDef>	
 
