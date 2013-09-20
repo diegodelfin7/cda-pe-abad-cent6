@@ -2,7 +2,7 @@
 <! Operaciónn:  PROCESO  cuentas_terceros_pf_pr  ------------------------------------------>
 
 <! OPERACION ----------------------------------------------------------------------->
-<com.grupobbva.ce.op.pf.PrOperFrecTerceros id=pfPagoFrecuenteTP_pr operationContext=OperationContext>
+<com.grupobbva.ce.op.pf.PrOperFrecTP id=pfPagoFrecuenteTP_pr operationContext=OperationContext>
 	<refKColl refId=pfPagoFrecuenteTP_pr-data>
 
 <! ESTADOS --------------------------------------------------------------------------->
@@ -19,26 +19,31 @@
 <! SALIDAS --------------------------------------------------------------------------->
 	<resultadoPr>	
 		<salidaPr id=0 operacion=pfInscripcionTP_op estadoOP=ERROR jspFile=gn001_error>
+		<salidaPr id=0 operacion=pfInscripcionTP_op estadoOP=pf001_inscripcionTP>
 		<salidaPr id=1 operacion=pfInscripcionTP_op estadoOP=1 jspFile=pf001_inscripcionTP>	
 		<salidaPr id=1 operacion=pfInscripcionTP_op estadoOP=ERROR jspFile=gn001_error>			
 				
 		<salidaPr id=0 operacion=pfRealizarTP_op estadoOP=ERROR jspFile=gn001_error>		
+		<salidaPr id=0 operacion=pfRealizarTP_op estadoOP=ERROR jspFile=pf002_realizaTP>		
 		<salidaPr id=1 operacion=pfRealizarTP_op estadoOP=1 jspFile=pf002_realizaTP>
 		<salidaPr id=1 operacion=pfRealizarTP_op estadoOP=ERROR jspFile=gn001_error>		
 		
 		
 	</resultadoPr>	
 
-</com.grupobbva.ce.op.pf.PrOperFrecTerceros>
+</com.grupobbva.ce.op.pf.PrOperFrecTP>
 <! --------------------------------------------------------------------------------->
 
 <! DATOS --------------------------------------------------------------------------->
 <kColl id=pfPagoFrecuenteTP_pr-data>
+	  <field id=prFecha >
+	  <field id=prHora >
+	  <field id=prOperacion >
 	  <field id=prUsuAutoriza >
 	  <field id=prCuentaCargo >
-  	  <field id=prMonedaCuentaCar >
+  	  <field id=prMonedaCuentaCargo >
   	  <field id=prCuentaAbono >
-  	  <field id=prMonedaCuentaAbo >
+  	  <field id=prMonedaCuentaAbono >
   	  <field id=prTitCuentaAbono >
 </kColl>
 <! --------------------------------------------------------------------------------->
