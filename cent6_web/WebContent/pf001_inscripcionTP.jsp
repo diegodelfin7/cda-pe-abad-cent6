@@ -25,7 +25,97 @@
 	var telefonos = "";
 	var emails = "";
 
+
+	function fValidar(){
+		fValidarAlias();
+		fValidarChBoxTelefonos();
+	}
+	
+	function fValidarAlias(){
+		var textoAlias = document.getElementById("AliasAsoc").value;
+		if(textoAlias == ""){
+			alert("Favor de agregar una descripción del Alias Asociado");
+		}
+	}
+	
+	function fActivarComponentesTelefonos(){
+		var chBoxTelefonos = document.getElementById("chBoxTelefonos");
+		if(chBoxTelefonos.checked == true){
+			fActivarDivTelefonos();
+		}else{
+			fDesactivarDivTelefonos();
+		}
+	}
+	
+	function fActivarComponentesEmails(){
+		var chBoxEmails = document.getElementById("chBoxEmails");
+		if(chBoxEmails.checked == true){
+			fActivarDivEmails();
+		}else{
+			fDesactivarDivEmails();
+		}
+	}
+	
+	function fActivarDivTelefonos(){
+		var divEncabezadosTelefonos = document.getElementById("divEncabezadosTelefonos");
+		var divTelefonos = document.getElementById("divTelefonos");
+		divEncabezadosTelefonos.disabled = false;
+		divTelefonos.disabled = false;
+	}
+	
+	function fDesactivarDivTelefonos(){
+		var divEncabezadosTelefonos = document.getElementById("divEncabezadosTelefonos");
+		var divTelefonos = document.getElementById("divTelefonos");
+		divEncabezadosTelefonos.disabled = true;
+		divTelefonos.disabled = true;
+	}
+	
+	function fActivarDivEmails(){
+		var divEncabezadosEmails = document.getElementById("divEncabezadosEmails");
+		var divEmails = document.getElementById("divEmails");
+		divEncabezadosEmails.disabled = false;
+		divEmails.disabled = false;
+	}
+	
+	function fDesactivarDivEmails(){
+		var divEncabezadosEmails = document.getElementById("divEncabezadosEmails");
+		var divEmails = document.getElementById("divEmails");
+		divEncabezadosEmails.disabled = true;
+		divEmails.disabled = true;
+	}	
+	
+	function fActivarDesactivarTodos(){
+	
+		//Radio
+ 		var rdRecordar = document.getElementsByName("rdRecordar");
+		var blnRadioSi =  rdRecordar[0].checked;
+		
+		var chBoxTelefonos = document.getElementById("chBoxTelefonos");
+		var chBoxEmails = document.getElementById("chBoxEmails");
+		
+		if(blnRadioSi){
+			chBoxEmails.disabled = false;
+			chBoxTelefonos.disabled = false;
+			
+			fActivarComponentesTelefonos();
+			fActivarComponentesEmails(); 
+		}else{
+			chBoxTelefonos.disabled = true;
+			chBoxTelefonos.checked = 0;
+			
+			chBoxEmails.disabled = true;
+			chBoxEmails.checked = 0;
+			
+			fActivarComponentesTelefonos();
+			fActivarComponentesEmails();
+		}
+	}
+	
+	
+
 	function form_submit() {
+	
+		
 		document.cuerpo.boton.disabled = true;
 		document.cuerpo.action = "OperacionCBTFServlet?proceso=pfPagoFrecuenteTP_pr&operacion=pfRealizarTP_op&accion=realizar";
 		document.cuerpo.submit();
@@ -285,7 +375,7 @@
 
 
 	<!--Contenido de la tabla-->
-	<div class="contenido_interior">
+	<div class="contenido_interior"  id="divContenidoInterior">
 		<div class="maxwidth">
 			<center>
 				<div class="caja_tabla" style="width: 525px">
@@ -357,10 +447,10 @@
 	        <td class="td_der_color">Deseo que me envien aviso
 	          recordatorio&nbsp;&nbsp;&nbsp;&nbsp;
 	          <input type="radio"
-									value="SI" name="rdRecordar" id="rdRecordar" checked="checked" />
+									value="SI" name="rdRecordar" id="rdRecordar" checked="checked" onclick="fActivarDesactivarTodos();"/>
 	          SI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	          <input
-									type="radio" value="NO" name="rdRecordar" id="rdRecordar" />
+									type="radio" value="NO" name="rdRecordar" id="rdRecordar" onclick="fActivarDesactivarTodos();" />
 	          NO </td>
 	        </tr>
 	      <tr class="tr_gris">
@@ -408,12 +498,15 @@
 	     
 	        <td height="103"><table width="695"  >
 	          <tr>
-	            <td width="634"><input type="checkbox" />
+	            <td width="634"><input type="checkbox" id="chBoxTelefonos"  name="chBoxTelefonos" onclick="fActivarComponentesTelefonos();" />
 	              Mensaje de Texto [SMS]
 	              a Teléfono Móvil</td>
 	            </tr>
 	          <tr>
-	            <td><table border="1">
+	            <td>
+	            
+	            <div id="divEncabezadosTelefonos" disabled>
+	            <table border="1">
 	              <tr>
 	                <td width="123" style="width: 127px;">OPERADOR</td>
 	                <td width="125" style="width: 129px;"><select
@@ -429,10 +522,15 @@
 	                <td width="69"><button name="btnEliminar"
 																			onclick="resetDatosTelefono();">x</button></td>
 	                </tr>
-	              </table></td>
+	              </table>
+	              </div>
+	              </td>
 	            </tr>
 	          <tr class="tr_blanco">
-	            <td class="td_izq_color" colspan="2"><table width="653"  border="1" id="tablaTelefonos"
+	            <td class="td_izq_color" colspan="2">
+	            
+	            <div id="divTelefonos" style="height:100px;overflow:auto;display:inline-block" disabled>
+	            <table width="653"  border="1" id="tablaTelefonos"
 																>
 	              <tr>
 	                <td width="69">No.</td>
@@ -440,7 +538,9 @@
 	                <td width="181">Teléfono</td>
 	                <td width="152">Acción</td>
 	                </tr>
-	              </table></td>
+	              </table>
+	              </div>
+	              </td>
 	            </tr>
 	          </table></td>
 	        </tr>
@@ -448,10 +548,11 @@
 	        <td>&nbsp;</td>
 	        </tr>
 	      <tr>
-	        <td><table width="693" >
+	        <td>
+	         <div id="divEncabezadosEmails" name="divEncabezadosEmails" >
+	        <table width="693" >
 	          <tr class="tr_blanco">
-	            <td width="595" colspan="2" class="td_izq_color"><input
-																type="checkbox" />
+	            <td width="595" colspan="2" class="td_izq_color"><input 	type="checkbox" id="chBoxEmails" name="chBoxEmails"  onclick="fActivarComponentesEmails();"/>
 	              Mensaje de aviso a la dirección
 	              electrónica<br />
 	              <input type="text" id="txtEmail"
@@ -461,22 +562,30 @@
 	              <button name="btnEliminar" onclick="resetDatosEmail();">x</button></td>
 	            </tr>
 	          <tr class="tr_blanco">
-	            <td class="td_izq_color" colspan="2"><table width="398" border="1" id="tablaEmails" >
+	            <td class="td_izq_color" colspan="2">
+	              </td>
+	            </tr>
+	          </table>
+	          </div>
+	          </td>
+	        </tr>
+	        
+	      <tr>
+	        <td>  
+	        	 <div id="divEmails" name="divEmails"  style="height:100px;overflow:auto;display:inline-block" disabled>
+	        	<table width="398" border="1" id="tablaEmails" >
 	              <tr>
 	                <td>No.</td>
 	                <td>Operador</td>
 	                <td>Accion</td>
 	                </tr>
-	              </table></td>
-	            </tr>
-	          </table></td>
-	        </tr>
-	      <tr>
-	        <td>&nbsp;</td>
+	              </table></div>
+	              
+	              </td>
 	        </tr>
 	      <tr>
 	        <td><input type="button"
-												value="Aceptar" name="boton" onclick="form_submit();"
+												value="Aceptar" name="boton" onclick="fValidar();"
 												tabindex="12" /></td>
 	        </tr>
 	      </table></td>
