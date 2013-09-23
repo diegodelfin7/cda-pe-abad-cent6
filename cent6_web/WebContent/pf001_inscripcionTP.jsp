@@ -5,7 +5,7 @@
 <%@ include file="includecbtf.jsp"%>
 
 
-<% //String hora = (String)traspaso.get("hora");
+<%// String hora = (String)traspaso.get("hora");
 //if(hora.length()==4)
 	//hora = hora.substring(0,2) + ":" + hora.substring(2,4);
 %>
@@ -289,14 +289,14 @@
 		<div class="maxwidth">
 			<center>
 				<div class="caja_tabla" style="width: 525px">
-				<table style="width: 520px;">
+				
 
   <tr>
-	<td><table width="731" border="0">
+	<td>
 	  <tr>
 	    <td width="721" height="181"><table width="618">
 	      <tr>
-	        <th align="left" colspan="2" id="nue">Inscripción Operación Frecuente</th>
+	        <th align="left"  colspan="2" id="nue">Inscripcion Operación Frecuente</th>
 	        </tr>
 	      <tr class="tr_blanco">
 	        <td width="304" class="td_izq_color">Operación</td>
@@ -325,18 +325,18 @@
 	      <!--Fecha Opeeración -->
 	      <tr class="tr_gris">
 	        <td class="td_izq_color">Fecha / Hora</td>
-	 
+	        <%/*String fecha=(String)datos.get("fechoper");
+  fecha=fecha.substring(8,10)+"/"+fecha.substring(5,7)+"/"+fecha.substring(0,4);*/
+  %>
 	        <td class="td_der_blan">&nbsp;
-	          <%= datos.get("fecha_host")%>
+	          <%//= fecha%>
 	          &nbsp;&nbsp;&nbsp;
-	          <%=datos.get("hora_host")%></td>
+	          <%//=hora%></td>
 	        </tr>
 	      </table></td>
 	    </tr>
 	  <tr>
-	    <td height="23">&nbsp;</td>
-	    </tr>
-	  <tr>
+	  
 	    <td height="80"><table width="622">
 	      <tr>
 	        <th align="left" colspan="2" id="nue2">Alias Asociado</th>
@@ -344,24 +344,17 @@
 	      <tr class="tr_blanco">
 	        <td class="td_izq_color" colspan="2">Descripción para
 	          recordar su pago&nbsp;&nbsp;&nbsp;&nbsp;
-	          <input type="text"
-									id="AliasAsoc" /></td>
-	        </tr>
-	      <tr class="tr_blanco">
-	        <td height="21" colspan="2" class="td_izq_color">&nbsp;</td>
+	          <input type="text" name="AliasAsoc" id="AliasAsoc" /></td>
 	        </tr>
 	      </table></td>
-	    </tr>
-	  <tr>
-	    <td>&nbsp;</td>
-	    </tr>
-	  <tr>
+	    
+	  
 	    <td><table width="625">
 	      <tr>
 	        <th align="left" colspan="2">Aviso Recordatorio</th>
 	        </tr>
 	      <tr class="tr_blanco">
-	        <td class="td_izq_color">Deseo que me envien aviso
+	        <td class="td_der_color">Deseo que me envien aviso
 	          recordatorio&nbsp;&nbsp;&nbsp;&nbsp;
 	          <input type="radio"
 									value="SI" name="rdRecordar" id="rdRecordar" checked="checked" />
@@ -370,10 +363,9 @@
 									type="radio" value="NO" name="rdRecordar" id="rdRecordar" />
 	          NO </td>
 	        </tr>
-	      <tr class="tr_blanco">
-	        <td class="td_izq_color">Los días
-	          <select id="cmbDias"
-									name="cmbDias">
+	      <tr class="tr_gris">
+	        <td class="td_der_color">Los días
+	          <select id="cmbDias" name="cmbDias">
 	            <option>1</option>
 	            <option>2</option>
 	            <option>3</option>
@@ -408,23 +400,12 @@
 	            </select>
 	          de cada mes </td>
 	        </tr>
-	      <tr class="tr_blanco">
-	        <td class="td_izq_color">&nbsp;</td>
-	        </tr>
-	      </table></td>
-	    </tr>
-	  <tr>
-	    <td>&nbsp;</td>
-	    </tr>
-	  <tr>
+	        
 	    <td><table width="701" border="0">
 	      <tr>
 	        <th align="left" width="691" colspan="2">Tipo de Aviso</th>
 	        </tr>
-	      <tr>
-	        <td height="23">&nbsp;</td>
-	        </tr>
-	      <tr>
+	     
 	        <td height="103"><table width="695"  >
 	          <tr>
 	            <td width="634"><input type="checkbox" />
