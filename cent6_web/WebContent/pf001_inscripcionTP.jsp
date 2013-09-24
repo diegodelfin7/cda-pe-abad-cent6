@@ -1,14 +1,8 @@
-
 <html>
 <head>
 <LINK rel=STYLESHEET type='text/css' href="../estilos/tablas.css">
 <%@ include file="includecbtf.jsp"%>
 
-
-<%// String hora = (String)traspaso.get("hora");
-//if(hora.length()==4)
-	//hora = hora.substring(0,2) + ":" + hora.substring(2,4);
-%>
 <link rel='stylesheet' media='screen' href='../css/menu.css'
 	type='text/css' />
 <link rel="stylesheet" media="screen" href="../css/estilos.css"
@@ -22,22 +16,47 @@
 	
 </script>
 <script>
+	var isNN = (navigator.appName.indexOf('Netscape')!=-1);
+	var ver = parseInt(navigator.appVersion);
+	if(!(isNN && ver == 4))	{
+		document.write("<meta http-equiv='Expires' CONTENT='0'>");
+	 	document.write("<meta http-equiv='Pragma' CONTENT='no-cache'>");	
+	}	
+	var lLetras=' ABCÇDEFGHIJKLMNÑOPQRSTUVWXYZabcçdefghijklmnñopqrstuvwxyz';
+	var lExtraCorreo='@_-.';
+	var lExtraTelefono='#*';
+	var lExtraDireccion = '.#\'';
+	var lExtraBusqueda = '.\'';
+	var lExtraNombre = '\'-&';
+	var lNumeros='1234567890';
+	var lExtraNumeros='-';
+	var lExtraDecimales='-.';
+	var lSigns=',.:;@-\'';
+	var lMathsigns='+-=()*/';
+	var lCustom='<>#$%&?¿';
+	var lEsp = ' ';
+
 	var telefonos = "";
 	var emails = "";
 
 
 	function fValidar(){
+		
 		fValidarAlias();
-		fValidarChBoxTelefonos();
+		
+		//fValidarChBoxTelefonos();
 	}
 	
 	function fValidarAlias(){
 		var textoAlias = document.getElementById("AliasAsoc").value;
 		if(textoAlias == ""){
 			alert("Favor de agregar una descripción del Alias Asociado");
+		}else{
+			form_submit();
+		
 		}
 	}
-	
+		
 	function fActivarComponentesTelefonos(){
 		var chBoxTelefonos = document.getElementById("chBoxTelefonos");
 		if(chBoxTelefonos.checked == true){
@@ -84,6 +103,37 @@
 		divEmails.disabled = true;
 	}	
 	
+	function validaLetrayNumero(DnEvents){
+		k = (isNN) ? DnEvents.which : window.event.keyCode;
+		c = (isNN) ? DnEvents.target.name : window.event.srcElement.name;
+		if (c!= null) {
+
+			if  (  ((k<48) || (k>57)) && ((k<65) || (k>90)) && ((k<97) || (k>122)) && (k!=0) && (k!=32) && (k!=8)   )
+		   {	
+			  if(isNN)
+			  return false;
+			  else
+			  event.returnValue = false;
+		   }
+
+		}
+	}
+	
+	function ingresoN(e){
+		var key;
+		var valid = '' + lNumeros;		
+		if(e.which){
+			key = String.fromCharCode(e.which);
+			if (valid.indexOf("" + key) == "-1")
+				e.preventDefault();
+		}
+		else if(e.keyCode){
+			key = String.fromCharCode(e.keyCode);
+			if (valid.indexOf("" + key) == "-1")
+				e.keyCode = 0;
+		}
+	}
+
 	function fActivarDesactivarTodos(){
 	
 		//Radio
@@ -92,10 +142,13 @@
 		
 		var chBoxTelefonos = document.getElementById("chBoxTelefonos");
 		var chBoxEmails = document.getElementById("chBoxEmails");
+		var cmbDias = document.getElementById("cmbDias");
 		
 		if(blnRadioSi){
+			
 			chBoxEmails.disabled = false;
 			chBoxTelefonos.disabled = false;
+			cmbDias.disabled = false;
 			
 			fActivarComponentesTelefonos();
 			fActivarComponentesEmails(); 
@@ -105,6 +158,8 @@
 			
 			chBoxEmails.disabled = true;
 			chBoxEmails.checked = 0;
+			
+			cmbDias.disabled = true;
 			
 			fActivarComponentesTelefonos();
 			fActivarComponentesEmails();
@@ -118,7 +173,8 @@
 		
 		document.cuerpo.boton.disabled = true;
 		document.cuerpo.action = "OperacionCBTFServlet?proceso=pfPagoFrecuenteTP_pr&operacion=pfRealizarTP_op&accion=realizar";
-		document.cuerpo.submit();
+		
+		document.cuerpo.AliasAsoc.submit();
 	}
 
 	function agregarTelefono(tableID) {
@@ -127,10 +183,10 @@
 		var numeroTelefono = document.getElementById("txtTelefono").value;
 
 		if (companiaTelefonica == "TELE") {
-			numeroTelefono = "M " + numeroTelefono;
+			numeroTelefono = "ML" + numeroTelefono;
 		}
 		if (companiaTelefonica == "CLAR") {
-			numeroTelefono = "C " + numeroTelefono;
+			numeroTelefono = "CL" + numeroTelefono;
 		}
 
 		if (telefonos == "") {
@@ -138,7 +194,7 @@
 		} else {
 			telefonos = telefonos + "|" + numeroTelefono;
 		}
-
+		
 		document.getElementById("hdTelefonos").value = telefonos;
 
 		var table = document.getElementById(tableID);
@@ -396,12 +452,10 @@
 	        <td class="td_izq_color">Usuario que autoriza-1ra Firma</td>
 	        <td class="td_der_blan"><%= datos.get("usuAutoriza")%></td>
 	        </tr>
-	      <!--Número de Cuenta de Cargo-->
 	      <tr class="tr_blanco">
 	        <td class="td_izq_color">Número de Cuenta de Cargo</td>
 	        <td class="td_der_blan">&nbsp;<%= datos.get("cuentaCargo")%>&nbsp;&nbsp;&nbsp;<%= datos.get("monedaCuentaCar")%></td>
 	        </tr>
-	      <!--Número de Cuenta de Abono-->
 	      <tr class="tr_gris">
 	        <td class="td_izq_color">Número de Cuenta de Abono</td>
 	        <td class="td_der_blan">&nbsp;<%= datos.get("cuentaAbono")%>&nbsp;&nbsp;&nbsp;
@@ -412,16 +466,10 @@
 	        <td class="td_izq_color">Titular de la Cuenta de Abono</td>
 	        <td class="td_der_blan">&nbsp;<%= datos.get("titCuentaAbono")%></td>
 	        </tr>
-	      <!--Fecha Opeeración -->
 	      <tr class="tr_gris">
 	        <td class="td_izq_color">Fecha / Hora</td>
-	        <%/*String fecha=(String)datos.get("fechoper");
-  fecha=fecha.substring(8,10)+"/"+fecha.substring(5,7)+"/"+fecha.substring(0,4);*/
-  %>
-	        <td class="td_der_blan">&nbsp;
-	          <%//= fecha%>
-	          &nbsp;&nbsp;&nbsp;
-	          <%//=hora%></td>
+	        
+	        <td class="td_der_blan">&nbsp;<%= datos.get("fecha_host")%>&nbsp;&nbsp;&nbsp;<%= datos.get("hora_host")%></td>
 	        </tr>
 	      </table></td>
 	    </tr>
@@ -434,7 +482,7 @@
 	      <tr class="tr_blanco">
 	        <td class="td_izq_color" colspan="2">Descripción para
 	          recordar su pago&nbsp;&nbsp;&nbsp;&nbsp;
-	          <input type="text" name="AliasAsoc" id="AliasAsoc" /></td>
+	          <input type="text" name="AliasAsoc" id="AliasAsoc" onkeypress="return validaLetrayNumero(event);" value="" /></td>
 	        </tr>
 	      </table></td>
 	    
@@ -447,15 +495,13 @@
 	        <td class="td_der_color">Deseo que me envien aviso
 	          recordatorio&nbsp;&nbsp;&nbsp;&nbsp;
 	          <input type="radio"
-									value="SI" name="rdRecordar" id="rdRecordar" checked="checked" onclick="fActivarDesactivarTodos();"/>
+									value="SI" name="rdRecordar" id="rdRecordar"  onclick="fActivarDesactivarTodos();"/>
 	          SI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	          <input
-									type="radio" value="NO" name="rdRecordar" id="rdRecordar" onclick="fActivarDesactivarTodos();" />
-	          NO </td>
+	          <input type="radio" value="NO" name="rdRecordar" id="rdRecordar" checked="checked" onclick="fActivarDesactivarTodos();" />NO </td>
 	        </tr>
 	      <tr class="tr_gris">
 	        <td class="td_der_color">Los días
-	          <select id="cmbDias" name="cmbDias">
+	          <select id="cmbDias" name="cmbDias" disabled>
 	            <option>1</option>
 	            <option>2</option>
 	            <option>3</option>
@@ -498,7 +544,7 @@
 	     
 	        <td height="103"><table width="695"  >
 	          <tr>
-	            <td width="634"><input type="checkbox" id="chBoxTelefonos"  name="chBoxTelefonos" onclick="fActivarComponentesTelefonos();" />
+	            <td width="634"><input type="checkbox" id="chBoxTelefonos"  name="chBoxTelefonos" onclick="fActivarComponentesTelefonos();" disabled />
 	              Mensaje de Texto [SMS]
 	              a Teléfono Móvil</td>
 	            </tr>
@@ -516,9 +562,9 @@
 	                  </select></td>
 	                <td width="112" style="width: 116px;">TELEFONO</td>
 	                <td width="144" style="width: 113px;"><input
-																		type="text" id="txtTelefono" value="TELEFONO" /></td>
+																		type="text" id="txtTelefono" maxlength="9" size="9" value="" onkeypress="return ingresoN(event);" /> </td>
 	                <td width="30"><button name="btnAgregar"
-																			onclick="agregarTelefono('tablaTelefonos');">+</button></td>
+																			onclick="agregarTelefono('tablaTelefonos');">+</button> </td>
 	                <td width="69"><button name="btnEliminar"
 																			onclick="resetDatosTelefono();">x</button></td>
 	                </tr>
@@ -549,16 +595,16 @@
 	        </tr>
 	      <tr>
 	        <td>
-	         <div id="divEncabezadosEmails" name="divEncabezadosEmails" >
+	         
 	        <table width="693" >
 	          <tr class="tr_blanco">
-	            <td width="595" colspan="2" class="td_izq_color"><input 	type="checkbox" id="chBoxEmails" name="chBoxEmails"  onclick="fActivarComponentesEmails();"/>
+	            <td width="595" colspan="2" class="td_izq_color"><input 	type="checkbox" id="chBoxEmails" name="chBoxEmails"  onclick="fActivarComponentesEmails();" disabled />
 	              Mensaje de aviso a la dirección
 	              electrónica<br />
-	              <input type="text" id="txtEmail"
-																value="E-MAIL" />
-	              <button name="btnAgregarEmail"
-																	onclick="agregarEmail('tablaEmails');">+</button>
+				  <div id="divEncabezadosEmails" name="divEncabezadosEmails" disabled >
+				  
+	              <input type="text" id="txtEmail"value=""  maxlength="50" size="50"></input>
+	              <button name="btnAgregarEmail"	onclick="agregarEmail('tablaEmails');">+</button>
 	              <button name="btnEliminar" onclick="resetDatosEmail();">x</button></td>
 	            </tr>
 	          <tr class="tr_blanco">
@@ -593,9 +639,9 @@
 	  </table>
 	  <p>&nbsp;</p>
 
-  <input type="hidden" id="hdTelefonos" name="hdTelefonos" /> 
-									<input
-									type="hidden" id="hdEmails" name="hdEmails" />
+  <input type="hidden" id="hdTelefonos" name="hdTelefonos" value="" /> 
+  <input type="hidden" id="hdEmails" name="hdEmails" value="" />
+
 </form>
 </body>
 </html>
